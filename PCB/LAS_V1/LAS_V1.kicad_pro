@@ -326,6 +326,18 @@
     [
       "aadef4b8-3115-4a49-998f-828f2021a6b4",
       ""
+    ],
+    [
+      "f48c28f3-4e7e-4446-924c-0b87434ade9c",
+      "LEDs"
+    ],
+    [
+      "7898df78-2a61-4f8a-8974-01dfb9e5acb5",
+      "Relay Controls"
+    ],
+    [
+      "e20eb156-223b-4e58-8433-f2d577203e9b",
+      "Power"
     ]
   ],
   "text_variables": {}
