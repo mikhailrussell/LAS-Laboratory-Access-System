@@ -1,2 +1,2 @@
 
-SELECT * FROM current_session;
+SELECT * FROM current_session

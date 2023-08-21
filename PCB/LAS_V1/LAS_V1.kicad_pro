@@ -235,7 +235,7 @@
       "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "ignore",
+      "simulation_model_issue": "error",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -348,6 +348,10 @@
     [
       "e20eb156-223b-4e58-8433-f2d577203e9b",
       "Power"
+    ],
+    [
+      "a475df9f-c6e9-4f77-bf99-c031d1147f10",
+      "USB Interface"
     ]
   ],
   "text_variables": {}
