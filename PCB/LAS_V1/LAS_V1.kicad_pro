@@ -235,7 +235,7 @@
       "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "error",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -346,12 +346,16 @@
       "Relay Controls"
     ],
     [
-      "e20eb156-223b-4e58-8433-f2d577203e9b",
-      "Power"
-    ],
-    [
       "a475df9f-c6e9-4f77-bf99-c031d1147f10",
       "USB Interface"
+    ],
+    [
+      "e3f941ed-5575-4c88-95e0-e32be2fe0df6",
+      "AC Monitor"
+    ],
+    [
+      "ed9f2215-51a0-424e-affe-14c415341265",
+      "Level Shifter"
     ]
   ],
   "text_variables": {}
