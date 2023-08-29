@@ -406,7 +406,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 105.41 77.47 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8c5858ba-d0d5-43af-8c5f-c660bdc322f1)
-    (property "Reference" "R24" (at 107.95 76.835 0)
+    (property "Reference" "R26" (at 107.95 76.835 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 107.95 79.375 0)
@@ -426,7 +426,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/ed9f2215-51a0-424e-affe-14c415341265"
-          (reference "R24") (unit 1)
+          (reference "R26") (unit 1)
         )
       )
     )
@@ -435,7 +435,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 161.29 77.47 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9d64e8ab-1a85-42ea-9df3-308ff7b2ab66)
-    (property "Reference" "R27" (at 163.83 76.835 0)
+    (property "Reference" "R29" (at 163.83 76.835 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 163.83 79.375 0)
@@ -455,7 +455,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/ed9f2215-51a0-424e-affe-14c415341265"
-          (reference "R27") (unit 1)
+          (reference "R29") (unit 1)
         )
       )
     )
@@ -464,7 +464,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 144.78 77.47 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e12e31cb-3612-43ae-b851-7cb1ca9e0c09)
-    (property "Reference" "R26" (at 147.32 76.835 0)
+    (property "Reference" "R28" (at 147.32 76.835 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 147.32 79.375 0)
@@ -484,7 +484,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/ed9f2215-51a0-424e-affe-14c415341265"
-          (reference "R26") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -493,7 +493,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 121.92 77.47 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f34a334a-eae6-4da0-afe2-46e6ef77c76a)
-    (property "Reference" "R25" (at 124.46 76.835 0)
+    (property "Reference" "R27" (at 124.46 76.835 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 124.46 79.375 0)
@@ -513,7 +513,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/ed9f2215-51a0-424e-affe-14c415341265"
-          (reference "R25") (unit 1)
+          (reference "R27") (unit 1)
         )
       )
     )

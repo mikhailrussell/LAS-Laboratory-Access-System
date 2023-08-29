@@ -402,7 +402,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 140.97 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 184ba26b-65b0-49ae-a331-502d3a9f0497)
-    (property "Reference" "R4" (at 142.748 80.645 0)
+    (property "Reference" "R6" (at 142.748 80.645 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1k" (at 142.748 83.185 0)
@@ -422,7 +422,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "R4") (unit 1)
+          (reference "R6") (unit 1)
         )
       )
     )
@@ -450,7 +450,7 @@
           (reference "#PWR021") (unit 1)
         )
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "#PWR016") (unit 1)
+          (reference "#PWR017") (unit 1)
         )
       )
     )
@@ -478,7 +478,7 @@
           (reference "#PWR021") (unit 1)
         )
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR016") (unit 1)
         )
       )
     )
@@ -510,7 +510,7 @@
           (reference "D8") (unit 1)
         )
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "D4") (unit 1)
+          (reference "D5") (unit 1)
         )
       )
     )
@@ -519,7 +519,7 @@
   (symbol (lib_id "LED:WS2812B") (at 140.97 116.84 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6002b93a-7214-4149-af75-767529bf4118)
-    (property "Reference" "D3" (at 154.686 110.49 0)
+    (property "Reference" "D4" (at 154.686 110.49 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "WS2812B" (at 154.686 113.03 0)
@@ -541,7 +541,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "D3") (unit 1)
+          (reference "D4") (unit 1)
         )
       )
     )
@@ -550,7 +550,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 160.02 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 777208c0-8a33-4b0d-b723-d9b617788450)
-    (property "Reference" "R5" (at 161.798 80.645 0)
+    (property "Reference" "R7" (at 161.798 80.645 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1k" (at 161.798 83.185 0)
@@ -570,7 +570,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "R5") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -579,7 +579,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 125.73 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a7eaa399-d300-4fed-a789-be666129743e)
-    (property "Reference" "R3" (at 127.508 80.645 0)
+    (property "Reference" "R5" (at 127.508 80.645 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1k" (at 127.508 83.185 0)
@@ -599,7 +599,7 @@
     (instances
       (project "LAS_V1"
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "R3") (unit 1)
+          (reference "R5") (unit 1)
         )
       )
     )
@@ -614,13 +614,13 @@
     (property "Value" "RED LED" (at 129.286 92.3925 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 125.73 88.9 0)
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric" (at 125.73 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 125.73 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "LCSC" "C2286" (at 125.73 88.9 0)
+    (property "LCSC" "C84256" (at 125.73 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 9cae627c-06b5-49e6-8328-bd893ac035c1))
@@ -631,7 +631,7 @@
           (reference "D6") (unit 1)
         )
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "D1") (unit 1)
+          (reference "D2") (unit 1)
         )
       )
     )
@@ -663,7 +663,7 @@
           (reference "D7") (unit 1)
         )
         (path "/aadef4b8-3115-4a49-998f-828f2021a6b4/f48c28f3-4e7e-4446-924c-0b87434ade9c"
-          (reference "D2") (unit 1)
+          (reference "D3") (unit 1)
         )
       )
     )
