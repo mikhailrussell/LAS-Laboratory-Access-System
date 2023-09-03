@@ -55,7 +55,10 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "hole_clearance|202627500|65100000|39ec350b-d93f-415d-b4c2-2291a86fa932|98f4903c-52e3-4089-8375-014ec9f395d7",
+        "hole_clearance|202627500|70900000|7ca9da51-cc69-427d-96ec-e5a54999d2c5|6f68c6c4-4d3a-422c-9a78-ee08d14c010e"
+      ],
       "meta": {
         "version": 2
       },
@@ -113,7 +116,7 @@
         "max_error": 0.005,
         "min_clearance": 0.15,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.3,
+        "min_copper_edge_clearance": 0.5,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
