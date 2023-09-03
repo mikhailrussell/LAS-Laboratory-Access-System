@@ -1,6 +1,6 @@
-LAS-Laboratory-Access-System-
+# LAS-Laboratory-Access-System-
 
-User Requirements
+# User Requirements
 Number/Label	Requirement
 UR-1	Allow clients to book particular sessions (time and date).
 UR-2	Allow clients to view what the status of laboratory.
@@ -10,7 +10,7 @@ UR-5	The status of benches must be physically displayed on the bench.
 UR-6	The system must be easily scalable.
 UR-7	The system must be cheap.
 
-Hardware Functional Requirements
+# Hardware Functional Requirements
 
 Number/label	Requirements	Acceptance Test Criteria
 FR-1	Retrieve student's IDs from 125KHz RFID student cards.	
@@ -20,7 +20,7 @@ FR-4	Each node must be able to activate a 220V relay.
 FR-5	Operate off 12V	
 FR-6	Cheap and easily scalable	
 
-Software Functional Requirements
+# Software Functional Requirements
 
 Number/label	Requirements	Acceptance Test Criteria
 FR-6	Site accessible via Wi-Fi (website accessible)	
