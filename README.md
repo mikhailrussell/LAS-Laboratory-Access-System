@@ -23,7 +23,7 @@
 |FR-6	|Cheap and easily scalable	|
 
 # Software Functional Requirements
-|----------|------------|------------|
+
 |Number/label	|Requirements	|Acceptance Test Criteria|
 |----------|------------|------------|
 |FR-6|	Site accessible via Wi-Fi (website accessible)	|
