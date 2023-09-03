@@ -1,4 +1,7 @@
 # LAS-Laboratory-Access-System-
+Current PCB Version: **LAS_V2**
+You can find the most recent version of the PCB under /PCB
+
 
 # User Requirements
 |Number/Label	|Requirement|
