@@ -1,8 +1,9 @@
 # LAS-Laboratory-Access-System-
 
 # User Requirements
-Number/Label	Requirement
-UR-1	Allow clients to book particular sessions (time and date).
+|Number/Label	|Requirement|
+|----------|------------|
+|UR-1	| Allow clients to book particular sessions (time and date). |
 UR-2	Allow clients to view what the status of laboratory.
 UR-3	Integrate access control with the current student card for identification.
 UR-4	Provide access to clients who have been allocated the correct session.
