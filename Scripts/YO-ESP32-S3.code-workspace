@@ -2,6 +2,10 @@
 	"folders": [
 		{
 			"path": "../../../../OneDrive/Documents/PlatformIO/Projects/YO-ESP32-S3"
+		},
+		{
+			"name": "ESP32-Gateway",
+			"path": "ESP32-Gateway"
 		}
 	],
 	"settings": {}

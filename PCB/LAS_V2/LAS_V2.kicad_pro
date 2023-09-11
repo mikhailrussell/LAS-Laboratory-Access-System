@@ -58,8 +58,6 @@
       "drc_exclusions": [
         "hole_clearance|197921250|78431250|39ec350b-d93f-415d-b4c2-2291a86fa932|98f4903c-52e3-4089-8375-014ec9f395d7",
         "hole_clearance|197921250|84231250|7ca9da51-cc69-427d-96ec-e5a54999d2c5|6f68c6c4-4d3a-422c-9a78-ee08d14c010e",
-        "hole_clearance|202627500|65100000|39ec350b-d93f-415d-b4c2-2291a86fa932|98f4903c-52e3-4089-8375-014ec9f395d7",
-        "hole_clearance|202627500|70900000|7ca9da51-cc69-427d-96ec-e5a54999d2c5|6f68c6c4-4d3a-422c-9a78-ee08d14c010e",
         "silk_edge_clearance|140200000|69510000|7dcaa26e-0dad-4d6b-a2e5-d322ae50cfd2|2099e96f-ee39-4942-a6d2-dc2f1f14ab5a",
         "silk_edge_clearance|158200000|69510000|7dcaa26e-0dad-4d6b-a2e5-d322ae50cfd2|5fa3c39e-e145-4024-b2e5-c96b8427980d",
         "silk_edge_clearance|158200000|69510000|7dcaa26e-0dad-4d6b-a2e5-d322ae50cfd2|a260ca7d-37b2-4632-ae0a-ce1ffb7f5e19"
@@ -447,23 +445,6 @@
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.15,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Power",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgb(255, 135, 22)",
-        "track_width": 0.4,
-        "via_diameter": 0.5,
-        "via_drill": 0.3,
-        "wire_width": 6
       }
     ],
     "meta": {
@@ -471,16 +452,7 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": [
-      {
-        "netclass": "Power",
-        "pattern": "/VBus"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "/+3.3V"
-      }
-    ]
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
