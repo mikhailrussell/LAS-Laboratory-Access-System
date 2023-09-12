@@ -2,14 +2,19 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
+//json stuff
+DynamicJsonDocument doc(1024);
+
 String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 void setup() {
   // initialize serial:
-  Serial.begin(9600);
+  Serial.begin(115200);
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
+
+  Serial.println("Setup Completed");
 }
 
 void loop() {
@@ -39,4 +44,18 @@ void serialEvent() {
       stringComplete = true;
     }
   }
+
+  DeserializationError error = deserializeJson(doc, inputString);
+
+  if (error) {
+    Serial.print("deserializeJson() failed: ");
+    Serial.println(error.c_str());
+    return;
+  }
+
+  int TABLE_NUM = doc["TABLE_NUM"]; // 2
+  String STDNUM = doc["STDNUM"]; // "RSSMIK001"
+
+  Serial.print("Student Number:");
+  Serial.println(STDNUM);
 }
