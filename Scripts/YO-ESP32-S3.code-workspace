@@ -6,7 +6,35 @@
 		{
 			"name": "ESP32-Gateway",
 			"path": "ESP32-Gateway"
+		},
+		{
+			"name": "ESP-CAM-Node",
+			"path": "ESP-CAM-Node"
+		},
+		{
+			"name": "ESP32CAM-Gateway",
+			"path": "../../ESP32CAM Projects/ESP32CAM-Gateway"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"xlocale": "cpp",
+			"xlocinfo": "cpp",
+			"xstring": "cpp",
+			"string": "cpp",
+			"chrono": "cpp",
+			"fstream": "cpp",
+			"iomanip": "cpp",
+			"locale": "cpp",
+			"sstream": "cpp",
+			"stdexcept": "cpp",
+			"xhash": "cpp",
+			"xlocbuf": "cpp",
+			"xlocmes": "cpp",
+			"xlocmon": "cpp",
+			"xlocnum": "cpp",
+			"xloctime": "cpp",
+			"*.tcc": "cpp"
+		}
+	}
 }
