@@ -13,6 +13,14 @@ char string[200];
 String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  
+  char* in = (char*) incomingData;
+  String datastr = String(in);
+  Serial.println(datastr);
+
+}
+
 void setup() {
   
   Serial.begin(115200);
@@ -21,6 +29,8 @@ void setup() {
   // Init wifi in station mode
   WiFi.mode(WIFI_STA);
   Serial.println("Wifi Started...");
+  Serial.print("ESP Board MAC Address:  ");
+  Serial.println(WiFi.macAddress());
 
   if (esp_now_init() != ESP_OK) {
     Serial.println("Error initializing ESP-NOW");
@@ -43,11 +53,13 @@ void setup() {
     return;
   }
 
+  esp_now_register_recv_cb(OnDataRecv);
+
   Serial.println("Setup Completed");
 }
 
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "1" : "0");
+  //Serial.println(status == ESP_NOW_SEND_SUCCESS ? "1" : "0");
 }
 
 void loop() {
@@ -55,40 +67,35 @@ void loop() {
 }
 
 /*
-  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
-  routine is run between each time loop() runs, so using delay inside loop can
-  delay response. Multiple bytes of data may be available.
+  SerialEvent called when Nodered tries to send data.
 */
 void serialEvent() {
-  inputString = "";
+  
+  char incomingChars[5];
+  byte bitTrain = 0;
 
   while (Serial.available()) {
-    // get the new byte:
-    char inChar = (char)Serial.read();
-    // add it to the inputString:
-    inputString += inChar;
 
+    for (int i = 0; i < 5; i++) {
+      incomingChars[i] = Serial.read();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      if (incomingChars[i] == '1') {
+        bitTrain |= (1 << (4 - i)); // Set the corresponding bit to 1
+      } else if (incomingChars[i] == '0') {
+        // Do nothing, the bit is already 0
+      }
+    }
   }
 
-  memcpy(&string, inputString.c_str(), strlen(inputString.c_str()));
-  uint8_t *buffer = (uint8_t*) inputString.c_str();
-  int result = esp_now_send(broadcastAddress, buffer, sizeof(buffer)*strlen(inputString.c_str()));
-  // Serial.print("Sent: ");
-  // Serial.print(string);
-  // Serial.print(" Size: ");
-  // Serial.println(sizeof(string));
-  
-  // DeserializationError error = deserializeJson(doc, inputString);
-
-  // if (error) {
-  //   Serial.print("deserializeJson() failed: ");
-  //   Serial.println(error.c_str());
-  //   return;
-  // }
-
-  // int TABLE_NUM = doc["TABLE_NUM"]; // 2
-  // String STDNUM = doc["STDNUM"]; // "RSSMIK001"
-
-  // Serial.print("Student Number:");
-  // Serial.println(STDNUM);
+  //memcpy(&string, inputString.c_str(), strlen(inputString.c_str()));
+  //uint8_t *buffer = (uint8_t*) inputString.c_str();
+  int result = esp_now_send(broadcastAddress, &bitTrain, sizeof(bitTrain));
+  if (result != ESP_OK){
+    //Serial.print("Tried to send: ");
+    //Serial.println(inputString);
+    //Serial.print("Size: ");
+    //Serial.println(sizeof(buffer)*strlen(inputString.c_str()));
+  }
 }

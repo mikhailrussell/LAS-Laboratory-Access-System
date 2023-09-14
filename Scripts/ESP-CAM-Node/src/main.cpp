@@ -2,35 +2,37 @@
 #include <WiFi.h>
 #include <ArduinoJson.h>
 
+#define MY_TABLE_NUM 1 // Define this units table num, Maybe need to make it ask on reset
 
-#define MY_TABLE_NUM 1
-
+// Json stuff
 String incoming_string;
 DynamicJsonDocument doc(1024);
 
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
-  char* in = (char*) incomingData;
-  String datastr = String(in);
-  Serial.println(datastr);
+void OnDataRecv(const uint8_t * mac, const uint8_t *data, int len) {
+  byte bitTrain = data[0]; // Received bitTrain
+  Serial.println("Received Bit Train: " + String(bitTrain, BIN));
+  
+  // char* in = (char*) incomingData;
+  // String datastr = String(in);
+  // Serial.println(datastr);
 
-  DeserializationError error = deserializeJson(doc, datastr);
+  // DeserializationError error = deserializeJson(doc, datastr);
 
-  if (error) {
-    Serial.print("deserializeJson() failed: ");
-    Serial.println(error.c_str());
-    return;
-  }
+  // if (error) {
+  //   Serial.print("deserializeJson() failed: ");
+  //   Serial.println(error.c_str());
+  //   return;
+  // }
 
-  int TABLE_NUM = doc["TABLE_NUM"]; // 2
-  String STDNUM = doc["STDNUM"]; // "RSSMIK001"
+  // int TABLE_NUM = doc["TABLE_NUM"]; // 2
+  // String STDNUM = doc["STDNUM"]; // "RSSMIK001"
+  // if (MY_TABLE_NUM == TABLE_NUM)
+  // {
+  //   Serial.print("Allow Access to:");
+  //   Serial.println(STDNUM);
+  // }
+  
 
-  if(MY_TABLE_NUM == TABLE_NUM){
-    Serial.print("Allow Access to:");
-    Serial.println(STDNUM);
-  }
-
-  Serial.print("Student Number:");
-  Serial.println(STDNUM);
 }
 void setup(){
     //Initialize Serial Monitor
