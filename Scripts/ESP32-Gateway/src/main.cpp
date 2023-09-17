@@ -12,12 +12,26 @@ uint8_t broadcastAddress[] = { 0xC4,0xDE,0xE2,0x12,0x4E,0xD4};
 char string[200];
 String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
+struct data {
+  int TABLE_NUM;
+  int STATUS;
+};
+
+data newdata;
 
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   
-  char* in = (char*) incomingData;
-  String datastr = String(in);
-  Serial.println(datastr);
+  // char* in = (char*) incomingData;
+  // String datastr = String(in);
+  // Serial.println(datastr);
+
+  // Copy the received data into the struct
+  // memcpy(&newdata, incomingData, sizeof(incomingData));
+  // Serial.printf("Received Data: Table = %d, status = %d\n", newdata.TABLE_NUM, newdata.STATUS);
+
+  char* buff = (char*) incomingData;
+  String buffStr = String(buff);
+  Serial.println(buffStr);
 
 }
 
@@ -69,33 +83,114 @@ void loop() {
 /*
   SerialEvent called when Nodered tries to send data.
 */
-void serialEvent() {
+// void serialEvent() {
   
-  char incomingChars[5];
-  byte bitTrain = 0;
+//   byte bytebuffer[10];
 
+//   char string[200];
+//   String inputString = "";      // a String to hold incoming data
+//   bool stringComplete = false;  // whether the string is complete
+//   byte inbyte;
+//   int table;
+//   int stat;
+
+//   int i = 0;
+//   while (Serial.available()) {
+
+//     char c = Serial.read();
+
+//     if (c == ',') {
+//       // Found a comma delimiter, parse the values
+//       newdata.TABLE_NUM = inputString.toInt();
+//       inputString = ""; // Clear the input string
+//     } 
+//     else if (c == '\n') {
+//       // Found a newline, which indicates the end of the data
+//       newdata.STATUS = inputString.toInt();
+//       }
+
+//     // table = Serial.parseInt();
+//     // stat = Serial.parseInt();
+
+//     // // Create a data structure to hold the values
+//     // newdata.TABLE_NUM = table;
+//     // newdata.STATUS = stat;
+
+    
+//     // inbyte = Serial.read();
+//     // bytebuffer[i] = inbyte;
+//     // i++;
+//     // Serial.print(inbyte); Serial.print(' ');
+//     //inputString = inputString + Serial.read(); 
+
+//     // Serial.println(*incomingint);
+
+//     // for (int i = 0; i < 3; i++) {
+//     //   if (incomingChars[i] == '1') {
+//     //     bitTrain |= (1 << (4 - i)); // Set the corresponding bit to 1
+//     //   } else if (incomingChars[i] == '0') {
+//     //     // Do nothing, the bit is already 0
+//     //   }
+//     // }
+
+//   }
+//   delay(100);
+//   Serial.printf("Received Data: Table = %d, status = %d\n", newdata.TABLE_NUM, newdata.STATUS);
+
+//   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&newdata, sizeof(data));
+
+//     if (result == ESP_OK) {
+//       Serial.println("Data sent successfully");
+//     } else {
+//       Serial.println("Error sending data");
+//     }
+//   // Serial.println();
+
+//   // for (int i = 0; i < 10; i++) {
+//   //   Serial.print(bytebuffer[i], BIN);
+//   //   Serial.print(' ');
+//   // }
+//   // Serial.println();
+//   // memcpy(&string, inputString.c_str(), strlen(inputString.c_str()));
+//   // uint8_t *buffer = (uint8_t*) inputString.c_str();
+//   // int result = esp_now_send(broadcastAddress, bytebuffer, 4);
+//   //if (result != ESP_OK){
+//     //Serial.print("Tried to send: ");
+//     //Serial.println(inputString);
+//     //Serial.print("Size: ");
+//     //Serial.println(sizeof(buffer)*strlen(inputString.c_str()));
+//   //}
+// }
+
+void serialEvent() {
+  static String inputString = "";
+  
   while (Serial.available()) {
+    char c = Serial.read();
 
-    for (int i = 0; i < 5; i++) {
-      incomingChars[i] = Serial.read();
-    }
+    if (c == ',') {
+      // Found a comma delimiter, parse the values
+      newdata.TABLE_NUM = inputString.toInt();
+      inputString = ""; // Clear the input string
+    } else if (c == '&') {
+      // Found a newline, which indicates the end of the data
+      newdata.STATUS = inputString.toInt();
 
-    for (int i = 0; i < 5; i++) {
-      if (incomingChars[i] == '1') {
-        bitTrain |= (1 << (4 - i)); // Set the corresponding bit to 1
-      } else if (incomingChars[i] == '0') {
-        // Do nothing, the bit is already 0
+      // Transmit the data structure using ESP-NOW
+      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&newdata, sizeof(data));
+
+      if (result == ESP_OK) {
+        Serial.println("Data sent successfully");
+        Serial.print(newdata.TABLE_NUM); Serial.print(" ");Serial.println(newdata.STATUS);
+      } else {
+        Serial.println("Error sending data");
       }
-    }
-  }
 
-  //memcpy(&string, inputString.c_str(), strlen(inputString.c_str()));
-  //uint8_t *buffer = (uint8_t*) inputString.c_str();
-  int result = esp_now_send(broadcastAddress, &bitTrain, sizeof(bitTrain));
-  if (result != ESP_OK){
-    //Serial.print("Tried to send: ");
-    //Serial.println(inputString);
-    //Serial.print("Size: ");
-    //Serial.println(sizeof(buffer)*strlen(inputString.c_str()));
+      // Clear the input string for the next data
+      inputString = "";
+    } else {
+      // Add the character to the input string
+      inputString += c;
+    }
   }
 }
