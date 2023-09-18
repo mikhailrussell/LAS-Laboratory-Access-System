@@ -179,12 +179,12 @@ void serialEvent() {
       // Transmit the data structure using ESP-NOW
       esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&newdata, sizeof(data));
 
-      if (result == ESP_OK) {
-        Serial.println("Data sent successfully");
-        Serial.print(newdata.TABLE_NUM); Serial.print(" ");Serial.println(newdata.STATUS);
-      } else {
-        Serial.println("Error sending data");
-      }
+      // if (result == ESP_OK) {
+      //   Serial.println("Data sent successfully");
+      //   Serial.print(newdata.TABLE_NUM); Serial.print(" ");Serial.println(newdata.STATUS);
+      // } else {
+      //   Serial.println("Error sending data");
+      // }
 
       // Clear the input string for the next data
       inputString = "";

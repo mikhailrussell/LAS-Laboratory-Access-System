@@ -92,15 +92,12 @@ void setup(){
   // Once ESPNow is successfully Init, we will register for recv CB to
   // get recv packer info
   esp_now_register_recv_cb(OnDataRecv);
-}
- 
-void loop(){
 
-delay(3000);
+  delay(3000);
 
 StaticJsonDocument<64> doc;
 
-doc["t"] = 1;
+doc["t"] = MY_TABLE_NUM;
 doc["s"] = "RSSMIK001";
 String output = "";
 serializeJson(doc, output);
@@ -111,5 +108,8 @@ esp_now_send(master_address, buffer, sizeBuff);
 
 Serial.print("Sent: ");
 Serial.println(output);
+}
+ 
+void loop(){
 
 }
