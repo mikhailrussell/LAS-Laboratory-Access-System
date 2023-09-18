@@ -1,85 +1,63 @@
+#include <Arduino.h>
+#include <ArduinoJson.h>
 #include <esp_now.h>
 #include <WiFi.h>
-#include <ArduinoJson.h>
-
-#define MY_TABLE_NUM 1 // Define this units table num, Maybe need to make it ask on reset
-
-uint8_t master_address[] = { 0x7C,0xDF,0xA1, 0xFD, 0x70, 0xD4};
-esp_now_peer_info_t peer;
-
-std::array<int, 4> decodeStatus(int status) {
-    std::array<int, 4> values;
-    values[0] = (status >> 3) & 1; // Extract bit 3 (b)
-    values[1] = (status >> 2) & 1; // Extract bit 2 (e)
-    values[2] = (status >> 1) & 1; // Extract bit 1 (r)
-    values[3] = status & 1;        // Extract bit 0 (a)
-    return values;
-}
-
-
-// Json stuff
-String incoming_string;
+//json stuff
 DynamicJsonDocument doc(1024);
 
+esp_now_peer_info_t peer;
+// C4:DE:E2:12:4E:D4
+uint8_t broadcastAddress[] = {  0x7C,0xDF,0xA1, 0xFD, 0x70, 0xD4};
+
+char string[200];
+String inputString = "";      // a String to hold incoming data
+bool stringComplete = false;  // whether the string is complete
 struct data {
   int TABLE_NUM;
   int STATUS;
 };
 
-struct Stat{
-  boolean b;
-  boolean e;
-  boolean r;
-  boolean a;
-};
-
 data newdata;
-Stat current_stat;
 
-void manage(){
-  Serial.println("Status managed");
-}
-
-void OnDataRecv(const uint8_t * mac, const uint8_t *data, int len) {
-  // byte bitTrain = data[0]; // Received bitTrain
-  // Serial.println("Received Bit Train: " + String(bitTrain, BIN));
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  
+  // char* in = (char*) incomingData;
+  // String datastr = String(in);
+  // Serial.println(datastr);
 
   // Copy the received data into the struct
-  memcpy(&newdata, data, len);
-  Serial.printf("Received Data: Table = %d, status = %d, Size = %d\n", newdata.TABLE_NUM, newdata.STATUS, len);
+  // memcpy(&newdata, incomingData, sizeof(incomingData));
+  // Serial.printf("Received Data: Table = %d, status = %d\n", newdata.TABLE_NUM, newdata.STATUS);
 
-  std::array<int, 4> result = decodeStatus(newdata.STATUS);
-  Serial.print(result[0]); Serial.print(" ");
-  Serial.print(result[1]); Serial.print(" ");
-  Serial.print(result[2]); Serial.print(" ");
-  Serial.print(result[3]); Serial.print(" ");
-
-  if(newdata.TABLE_NUM == MY_TABLE_NUM){
-    // Update status then go manage
-    current_stat.b = result[0];
-    current_stat.e = result[1];
-    current_stat.r = result[2];
-    current_stat.a = result[3];
-    manage();
-  }
-  
+  char* buff = (char*) incomingData;
+  String buffStr = String(buff);
+  Serial.println(buffStr);
 
 }
 
-void setup(){
-    //Initialize Serial Monitor
-  Serial.begin(115200);
+void setup() {
   
-  //Set device as a Wi-Fi Station
+  Serial.begin(115200);
+  Serial.println("Begin Setup...");
+  
+  // Init wifi in station mode
   WiFi.mode(WIFI_STA);
+  Serial.println("Wifi Started...");
+  Serial.print("ESP Board MAC Address:  ");
+  Serial.println(WiFi.macAddress());
 
-  //Init ESP-NOW
   if (esp_now_init() != ESP_OK) {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
+  Serial.println("ESP-NOW Initilised");
 
-  memcpy(peer.peer_addr, master_address, 6);
+  // reserve 200 bytes for the inputString:
+  inputString.reserve(200);
+  
+  Serial.println("Begin adding peer...");
+  // Register peer
+  memcpy(peer.peer_addr, broadcastAddress, 6);
   peer.channel = 0;  
   peer.encrypt = false;
 
@@ -88,28 +66,131 @@ void setup(){
     Serial.println("Failed to add peer");
     return;
   }
-  
-  // Once ESPNow is successfully Init, we will register for recv CB to
-  // get recv packer info
+
   esp_now_register_recv_cb(OnDataRecv);
 
-  delay(3000);
-
-StaticJsonDocument<64> doc;
-
-doc["t"] = MY_TABLE_NUM;
-doc["s"] = "RSSMIK001";
-String output = "";
-serializeJson(doc, output);
-
-uint8_t *buffer = (uint8_t*) output.c_str();
-size_t sizeBuff = sizeof(buffer) * output.length();
-esp_now_send(master_address, buffer, sizeBuff);
-
-Serial.print("Sent: ");
-Serial.println(output);
+  Serial.println("Setup Completed");
 }
- 
-void loop(){
 
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  //Serial.println(status == ESP_NOW_SEND_SUCCESS ? "1" : "0");
+}
+
+void loop() {
+
+}
+
+/*
+  SerialEvent called when Nodered tries to send data.
+*/
+// void serialEvent() {
+  
+//   byte bytebuffer[10];
+
+//   char string[200];
+//   String inputString = "";      // a String to hold incoming data
+//   bool stringComplete = false;  // whether the string is complete
+//   byte inbyte;
+//   int table;
+//   int stat;
+
+//   int i = 0;
+//   while (Serial.available()) {
+
+//     char c = Serial.read();
+
+//     if (c == ',') {
+//       // Found a comma delimiter, parse the values
+//       newdata.TABLE_NUM = inputString.toInt();
+//       inputString = ""; // Clear the input string
+//     } 
+//     else if (c == '\n') {
+//       // Found a newline, which indicates the end of the data
+//       newdata.STATUS = inputString.toInt();
+//       }
+
+//     // table = Serial.parseInt();
+//     // stat = Serial.parseInt();
+
+//     // // Create a data structure to hold the values
+//     // newdata.TABLE_NUM = table;
+//     // newdata.STATUS = stat;
+
+    
+//     // inbyte = Serial.read();
+//     // bytebuffer[i] = inbyte;
+//     // i++;
+//     // Serial.print(inbyte); Serial.print(' ');
+//     //inputString = inputString + Serial.read(); 
+
+//     // Serial.println(*incomingint);
+
+//     // for (int i = 0; i < 3; i++) {
+//     //   if (incomingChars[i] == '1') {
+//     //     bitTrain |= (1 << (4 - i)); // Set the corresponding bit to 1
+//     //   } else if (incomingChars[i] == '0') {
+//     //     // Do nothing, the bit is already 0
+//     //   }
+//     // }
+
+//   }
+//   delay(100);
+//   Serial.printf("Received Data: Table = %d, status = %d\n", newdata.TABLE_NUM, newdata.STATUS);
+
+//   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&newdata, sizeof(data));
+
+//     if (result == ESP_OK) {
+//       Serial.println("Data sent successfully");
+//     } else {
+//       Serial.println("Error sending data");
+//     }
+//   // Serial.println();
+
+//   // for (int i = 0; i < 10; i++) {
+//   //   Serial.print(bytebuffer[i], BIN);
+//   //   Serial.print(' ');
+//   // }
+//   // Serial.println();
+//   // memcpy(&string, inputString.c_str(), strlen(inputString.c_str()));
+//   // uint8_t *buffer = (uint8_t*) inputString.c_str();
+//   // int result = esp_now_send(broadcastAddress, bytebuffer, 4);
+//   //if (result != ESP_OK){
+//     //Serial.print("Tried to send: ");
+//     //Serial.println(inputString);
+//     //Serial.print("Size: ");
+//     //Serial.println(sizeof(buffer)*strlen(inputString.c_str()));
+//   //}
+// }
+
+void serialEvent() {
+  static String inputString = "";
+  
+  while (Serial.available()) {
+    char c = Serial.read();
+
+    if (c == ',') {
+      // Found a comma delimiter, parse the values
+      newdata.TABLE_NUM = inputString.toInt();
+      inputString = ""; // Clear the input string
+    } else if (c == '&') {
+      // Found a newline, which indicates the end of the data
+      newdata.STATUS = inputString.toInt();
+
+      // Transmit the data structure using ESP-NOW
+      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&newdata, sizeof(data));
+
+      // if (result == ESP_OK) {
+      //   Serial.println("Data sent successfully");
+      //   Serial.print(newdata.TABLE_NUM); Serial.print(" ");Serial.println(newdata.STATUS);
+      // } else {
+      //   Serial.println("Error sending data");
+      // }
+
+      // Clear the input string for the next data
+      inputString = "";
+    } else {
+      // Add the character to the input string
+      inputString += c;
+    }
+  }
 }
