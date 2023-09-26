@@ -1,21 +1,5 @@
 {
-	"folders": [
-		{
-			"path": "../../../../OneDrive/Documents/PlatformIO/Projects/YO-ESP32-S3"
-		},
-		{
-			"name": "ESP32-Gateway",
-			"path": "ESP32-Gateway"
-		},
-		{
-			"name": "ESP-CAM-Node",
-			"path": "ESP-CAM-Node"
-		},
-		{
-			"name": "ESP32CAM-Gateway",
-			"path": "../../ESP32CAM Projects/ESP32CAM-Gateway"
-		}
-	],
+	"folders": [],
 	"settings": {
 		"files.associations": {
 			"xlocale": "cpp",

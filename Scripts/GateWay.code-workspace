@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "YO-ESP32-S3",
+			"path": "C:/Users/Admin/OneDrive/Documents/PlatformIO/Projects/YO-ESP32-S3"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "cpp",
+			"functional": "cpp",
+			"string_view": "cpp"
+		}
+	}
+}
