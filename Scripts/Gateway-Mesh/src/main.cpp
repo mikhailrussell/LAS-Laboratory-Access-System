@@ -1,49 +1,96 @@
-#include <Arduino.h>
-#include <esp_mesh.h>
-#include <esp_wifi.h>
+//************************************************************
+// this is a simple example that uses the easyMesh library
+//
+// 1. blinks led once for every node on the mesh
+// 2. blink cycle repeats every BLINK_PERIOD
+// 3. sends a silly message to every node on the mesh at a random time between 1 and 5 seconds
+// 4. prints anything it receives to Serial.print
+//
+//
+//************************************************************
+#include <painlessMesh.h>
 
+#define   MESH_SSID       "white-lab-mesh"
+#define   MESH_PASSWORD   "justinhelp"
+#define   MESH_PORT       5555
 
-// put function declarations here:
-int myFunction(int, int);
+// Prototypes
+void receivedCallback(uint32_t from, String & msg);
+void newConnectionCallback(uint32_t nodeId);
+void changedConnectionCallback(); 
+void nodeTimeAdjustedCallback(int32_t offset); 
+void delayReceivedCallback(uint32_t from, int32_t delay);
+
+Scheduler     userScheduler; // to control your personal task
+painlessMesh  mesh;
+
+bool calc_delay = false;
+SimpleList<uint32_t> nodes;
+
+// Task to blink the number of nodes
+Task blinkNoNodes;
+bool onFlag = false;
 
 void setup() {
-  // put your setup code here, to run once:
-  
-  ESP_ERROR_CHECK(esp_netif_init());
+  Serial.begin(115200);
 
-  /*  event initialization */
-  ESP_ERROR_CHECK(esp_event_loop_create_default());
+  mesh.setDebugMsgTypes(ERROR | DEBUG);  // set before init() so that you can see error messages
 
-  /*  Wi-Fi initialization */
-  wifi_init_config_t config = WIFI_INIT_CONFIG_DEFAULT();
-  ESP_ERROR_CHECK(esp_wifi_init(&config));
-  /*  register IP events handler */
-  esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &ip_event_handler, NULL);
-  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_FLASH));
-  ESP_ERROR_CHECK(esp_wifi_start());
-  /* Enable the Mesh IE encryption by default */
-  mesh_cfg_t cfg = MESH_INIT_CONFIG_DEFAULT();
-  /* mesh ID */
-  memcpy((uint8_t *) &cfg.mesh_id, MESH_ID, 6);
-  /* channel (must match the router's channel) */
-  cfg.channel = CONFIG_MESH_CHANNEL;
-  /* router */
-  cfg.router.ssid_len = strlen(CONFIG_MESH_ROUTER_SSID);
-  memcpy((uint8_t *) &cfg.router.ssid, CONFIG_MESH_ROUTER_SSID, cfg.router.ssid_len);
-  memcpy((uint8_t *) &cfg.router.password, CONFIG_MESH_ROUTER_PASSWD,
-        strlen(CONFIG_MESH_ROUTER_PASSWD));
-  /* mesh softAP */
-  cfg.mesh_ap.max_connection = CONFIG_MESH_AP_CONNECTIONS;
-  memcpy((uint8_t *) &cfg.mesh_ap.password, CONFIG_MESH_AP_PASSWD,
-        strlen(CONFIG_MESH_AP_PASSWD));
-  ESP_ERROR_CHECK(esp_mesh_set_config(&cfg));
+  mesh.init(MESH_SSID, MESH_PASSWORD, &userScheduler, MESH_PORT);
+  mesh.onReceive(&receivedCallback);
+  //mesh.onNewConnection(&newConnectionCallback);
+  // mesh.onChangedConnections(&changedConnectionCallback);
+  //mesh.onNodeTimeAdjusted(&nodeTimeAdjustedCallback);
+  //mesh.onNodeDelayReceived(&delayReceivedCallback);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  mesh.update();
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void receivedCallback(uint32_t from, String & msg) {
+  Serial.printf("%s\n", msg.c_str());
+}
+
+void newConnectionCallback(uint32_t nodeId) {
+  Serial.printf("--> startHere: New Connection, nodeId = %u\n", nodeId);
+  Serial.printf("--> startHere: New Connection, %s\n", mesh.subConnectionJson(true).c_str());
+}
+
+void changedConnectionCallback() {
+  Serial.printf("Changed connections\n");
+  // Reset blink task
+  onFlag = false;
+ 
+  nodes = mesh.getNodeList();
+
+  Serial.printf("Num nodes: %d\n", nodes.size());
+  Serial.printf("Connection list:");
+
+  SimpleList<uint32_t>::iterator node = nodes.begin();
+  while (node != nodes.end()) {
+    Serial.printf(" %u", *node);
+    node++;
+  }
+  Serial.println();
+  calc_delay = true;
+}
+
+void nodeTimeAdjustedCallback(int32_t offset) {
+  Serial.printf("Adjusted time %u. Offset = %d\n", mesh.getNodeTime(), offset);
+}
+
+void delayReceivedCallback(uint32_t from, int32_t delay) {
+  Serial.printf("Delay to node %u is %d us\n", from, delay);
+}
+
+void serialEvent() {
+  String inputString = "";
+  
+  while (Serial.available()) {
+
+    char c = Serial.read();
+    inputString += c;
+  }
+  mesh.sendBroadcast(inputString);
 }
