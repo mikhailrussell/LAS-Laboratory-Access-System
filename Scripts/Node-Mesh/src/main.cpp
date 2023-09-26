@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <esp_mesh.h>
 
 // put function declarations here:
 int myFunction(int, int);
