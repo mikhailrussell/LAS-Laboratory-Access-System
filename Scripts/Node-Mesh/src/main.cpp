@@ -1,16 +1,11 @@
 //************************************************************
-// this is a simple example that uses the easyMesh library
-//
-// 1. blinks led once for every node on the mesh
-// 2. blink cycle repeats every BLINK_PERIOD
-// 3. sends a silly message to every node on the mesh at a random time between 1 and 5 seconds
-// 4. prints anything it receives to Serial.print
-//
 //
 //************************************************************
 #include <painlessMesh.h>
 #include <ArduinoJson.h>
 #include <NeoPixelBus.h>
+
+#define MY_TABLE_NUM 1 // Define this units table num, Maybe need to make it ask on reset
 
 #define   MESH_SSID       "white-lab-mesh"
 #define   MESH_PASSWORD   "justinhelp"
@@ -35,8 +30,7 @@ HslColor hslBlue(blue);
 HslColor hslWhite(white);
 HslColor hslBlack(black);
 
-#define MY_TABLE_NUM 2 // Define this units table num, Maybe need to make it ask on reset
-int old_table = 2000;
+
 boolean active = false;
 
 // Prototypes
@@ -47,7 +41,7 @@ void changedConnectionCallback();
 void nodeTimeAdjustedCallback(int32_t offset); 
 void delayReceivedCallback(uint32_t from, int32_t delay);
 
-StaticJsonDocument<96> doc;
+StaticJsonDocument<192> doc;
 
 Scheduler     userScheduler; // to control your personal task
 painlessMesh  mesh;
@@ -80,7 +74,7 @@ std::array<int, 4> decodeStatus(int status) {
     return values;
 }
 
-
+int test = 0;
 // Json stuff
 String incoming_string;
 
@@ -313,13 +307,27 @@ void receivedCallback(uint32_t from, String & msg) {
   }
   int t = doc["t"].as<int>(); // 1
   int s = doc["s"].as<int>(); // 12
+  int time = doc["time"];
+  int l = test;
+  
 
-  Serial.print(t);
-  Serial.println(s);
+  //Serial.print(t);
+  //Serial.println(s);
   //int l = doc["l"]; // 255
   newdata.TABLE_NUM = t;
   newdata.STATUS =s;
-  
+  if(newdata.TABLE_NUM == 0 and test != 10000){
+    String output = "";
+    doc["t"] = 0;
+    doc["s"] = 0;
+    int l = test;
+    doc["l"] = l;
+    doc["time"] = time;
+
+    serializeJson(doc, output);
+    mesh.sendBroadcast(output);
+    test = test+1;
+  }
   if(newdata.TABLE_NUM == MY_TABLE_NUM){
     Serial.print(t);  
     Serial.println(s);
