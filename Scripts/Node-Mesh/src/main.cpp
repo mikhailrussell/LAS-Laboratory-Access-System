@@ -319,7 +319,7 @@ void receivedCallback(uint32_t from, String & msg) {
   if(newdata.TABLE_NUM == 0 and test != 10000){
     String output = "";
     doc["t"] = 0;
-    doc["s"] = 0;
+    doc["s"] = s;
     int l = test;
     doc["l"] = l;
     doc["time"] = time;
