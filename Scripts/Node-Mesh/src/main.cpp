@@ -65,13 +65,13 @@ char tag_buffer [8];
 uint8_t buffer[BUFFER_SIZE]; // used to store an incoming data frame 
 int buffer_index = 0;
 
-std::array<int, 4> decodeStatus(int status) {
-    std::array<int, 4> values;
-    values[0] = (status >> 3) & 1; // Extract bit 3 (b)
-    values[1] = (status >> 2) & 1; // Extract bit 2 (e)
-    values[2] = (status >> 1) & 1; // Extract bit 1 (r)
-    values[3] = status & 1;        // Extract bit 0 (a)
-    return values;
+std::array<int, 4> UpdateStatus(int status) {
+    std::array<int, 4> ret;
+    ret[0] = (status >> 3) & 1; // (b)
+    ret[1] = (status >> 2) & 1; // (e)
+    ret[2] = (status >> 1) & 1; // (r)
+    ret[3] = status & 1;        // (a)
+    return ret;
 }
 
 int test = 0;
@@ -187,8 +187,8 @@ void setup() {
 
   mesh.init(MESH_SSID, MESH_PASSWORD, &userScheduler, MESH_PORT);
   mesh.onReceive(&receivedCallback);
-  // mesh.onNewConnection(&newConnectionCallback);
-  // mesh.onChangedConnections(&changedConnectionCallback);
+  mesh.onNewConnection(&newConnectionCallback);
+  mesh.onChangedConnections(&changedConnectionCallback);
   // mesh.onNodeTimeAdjusted(&nodeTimeAdjustedCallback);
   // mesh.onNodeDelayReceived(&delayReceivedCallback);
 
@@ -331,7 +331,7 @@ void receivedCallback(uint32_t from, String & msg) {
   if(newdata.TABLE_NUM == MY_TABLE_NUM){
     Serial.print(t);  
     Serial.println(s);
-    std::array<int, 4> result = decodeStatus(newdata.STATUS);
+    std::array<int, 4> result = UpdateStatus(newdata.STATUS);
     Serial.print(result[0]); Serial.print(" ");
     Serial.print(result[1]); Serial.print(" ");
     Serial.print(result[2]); Serial.print(" ");
