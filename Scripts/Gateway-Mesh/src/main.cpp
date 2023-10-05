@@ -9,6 +9,7 @@
 //
 //************************************************************
 #include <painlessMesh.h>
+#include <HardwareSerial.h>
 
 #define   MESH_SSID       "white-lab-mesh"
 #define   MESH_PASSWORD   "justinhelp"
@@ -31,8 +32,27 @@ SimpleList<uint32_t> nodes;
 Task blinkNoNodes;
 bool onFlag = false;
 
+HardwareSerial RPI(1);
+String inputString = "";
+
+void RPI_recieve(void){
+  
+  while (RPI.available()) {
+
+    char c = RPI.read();
+    inputString += c;
+  }
+  //Serial.println(inputString);
+  mesh.sendBroadcast(inputString);
+  inputString = "";
+}
+
+
 void setup() {
   Serial.begin(115200);
+  RPI.begin(115200, SERIAL_8N1, 18, 17);
+  RPI.onReceive(&RPI_recieve);
+  
 
   mesh.setDebugMsgTypes(ERROR | DEBUG);  // set before init() so that you can see error messages
 
@@ -49,7 +69,7 @@ void loop() {
 }
 
 void receivedCallback(uint32_t from, String & msg) {
-  Serial.printf("%s\n", msg.c_str());
+  RPI.println(msg.c_str());
 }
 
 void newConnectionCallback(uint32_t nodeId) {

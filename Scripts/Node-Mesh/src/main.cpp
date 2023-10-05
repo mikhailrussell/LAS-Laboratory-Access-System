@@ -300,11 +300,6 @@ void receivedCallback(uint32_t from, String & msg) {
   String modifiedMsg = msg;
   modifiedMsg.replace("'", "\"");
   DeserializationError error = deserializeJson(doc,msg.c_str());
-  if (error) {
-  Serial.print("deserializeJson() failed: ");
-  Serial.println(error.c_str());
-  return;
-  }
   int t = doc["t"].as<int>(); // 1
   int s = doc["s"].as<int>(); // 12
   int time = doc["time"];

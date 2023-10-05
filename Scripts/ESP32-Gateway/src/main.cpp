@@ -47,6 +47,8 @@ char tag_buffer [8];
 uint8_t buffer[BUFFER_SIZE]; // used to store an incoming data frame 
 int buffer_index = 0;
 
+int test = 0;
+
 std::array<int, 4> decodeStatus(int status) {
     std::array<int, 4> values;
     values[0] = (status >> 3) & 1; // Extract bit 3 (b)
@@ -59,12 +61,14 @@ std::array<int, 4> decodeStatus(int status) {
 
 // Json stuff
 String incoming_string;
-DynamicJsonDocument doc(1024);
+StaticJsonDocument<192> doc;
 
 
 struct data {
   u_int8_t TABLE_NUM;
-  u_int8_t STATUS;
+  int STATUS;
+  //u_int8_t STATUS;
+  int timeIn;
 };
 
 struct Stat{
@@ -164,8 +168,23 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *data, int len) {
   
   memcpy(&newdata, data, len);
   Serial.printf("Received Data: Table = %d, status = %d, Size = %d\n", newdata.TABLE_NUM, newdata.STATUS, len);
-  Serial.printf("%4d", WiFi.RSSI());
-  
+  if(newdata.TABLE_NUM == 0){
+    StaticJsonDocument<64> doc;
+    doc["t"] = 0;
+    doc["s"] = newdata.STATUS;
+    int l = test;
+    doc["l"] = l;
+    doc["time"] = newdata.timeIn;
+
+    
+    String j = "";
+    serializeJson(doc, j);
+
+    uint8_t *buffer = (uint8_t*) j.c_str();
+    size_t sizeBuff = sizeof(buffer) * j.length();
+    esp_now_send(master_address, buffer, sizeBuff);
+    test +=1;
+  }
   if(newdata.TABLE_NUM == MY_TABLE_NUM){
     std::array<int, 4> result = decodeStatus(newdata.STATUS);
     Serial.print(result[0]); Serial.print(" ");
