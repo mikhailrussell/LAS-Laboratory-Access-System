@@ -1,0 +1,3699 @@
+[
+    {
+        "id": "0fea605258dceb48",
+        "type": "tab",
+        "label": "Form Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a21cce9ce617493b",
+        "type": "tab",
+        "label": "Serial to network",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8f7809781495ceb3",
+        "type": "tab",
+        "label": "Lab Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cdfe098afd9a2d5e",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "53b8a60c.b0cba8",
+        "type": "tab",
+        "label": "Timezone",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "77fb89a5726172d2",
+        "type": "serial-port",
+        "serialport": "/dev/ttyAMA0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "b494c49fefb89c5e",
+        "type": "serial-port",
+        "serialport": "/dev/ttyS0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "100"
+    },
+    {
+        "id": "c947ab9b8f34cf7a",
+        "type": "websocket-listener",
+        "path": "/hello1",
+        "wholemsg": "false"
+    },
+    {
+        "id": "daef1dd312fdf4a6",
+        "type": "mqtt-broker",
+        "name": "mosquitto",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a113c92c1347158e",
+        "type": "serial-port",
+        "serialport": "COM8",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "c9cda8cf7289d8c4",
+        "type": "serial-port",
+        "serialport": "COM1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "67a4cd2fc1503239",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ba2ae5ca2460f4a0",
+        "type": "ui_tab",
+        "name": "Book",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "82c3ed025d83423e",
+        "type": "ui_tab",
+        "name": "Live",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "41f79bdb0ef85dfe",
+        "type": "ui_tab",
+        "name": "Temp",
+        "icon": "dashboard",
+        "disabled": true,
+        "hidden": false
+    },
+    {
+        "id": "cc6c4310cf7b61cc",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b11c936537a55cb0",
+        "type": "ui_group",
+        "name": "Students In Lab",
+        "tab": "82c3ed025d83423e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "22f0b55d75ee90ea",
+        "type": "ui_group",
+        "name": "BUSY",
+        "tab": "82c3ed025d83423e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ef9b137fa99626e7",
+        "type": "ui_group",
+        "name": "Booking",
+        "tab": "ba2ae5ca2460f4a0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1314220c1931be07",
+        "type": "ui_group",
+        "name": "Group Bookings",
+        "tab": "ba2ae5ca2460f4a0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c33a1024a72aa169",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "cc6c4310cf7b61cc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8fe7bdee376e11af",
+        "type": "MySQLdatabase",
+        "name": "live",
+        "host": "localhost",
+        "port": "3306",
+        "db": "live",
+        "tz": "=",
+        "charset": "UTF8"
+    },
+    {
+        "id": "59a6d0937560c0bc",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "localhost",
+        "port": "3306",
+        "db": "bookings",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a1d8ed34.6a447",
+        "type": "ui_group",
+        "name": "Time",
+        "tab": "4d8d2f83.26819",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4d8d2f83.26819",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings"
+    },
+    {
+        "id": "5a1d5c94e0d8eb45",
+        "type": "ui_group",
+        "name": "CPU info",
+        "tab": "4d8d2f83.26819",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "86522a47a5063a34",
+        "type": "ui_form",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "label": "",
+        "group": "ef9b137fa99626e7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Student Number",
+                "value": "STDNUMS",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Table Number",
+                "value": "TBLNUM",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Date",
+                "value": "DATE",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Time",
+                "value": "TIME",
+                "type": "time",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "STDNUMS": "",
+            "TBLNUM": "",
+            "DATE": "",
+            "TIME": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "6c0cf2d13f4c2928"
+            ]
+        ]
+    },
+    {
+        "id": "6c0cf2d13f4c2928",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "Fix Date and Time",
+        "func": "// // Extract the incoming message payload\n// const inputJson = msg.payload;\n\n// function addOneDayToDate(dateString) {\n//     const currentDate = new Date(dateString);\n//     currentDate.setDate(currentDate.getDate() + 1);\n//     return currentDate.toISOString().split('T')[0];\n// }\n\n// const modifiedJson = {\n\n//     STDNUM : \"'\" + inputJson.STDNUMS + \"'\",\n//     TBLNUM : inputJson.TBLNUM,\n//     DATE: addOneDayToDate(inputJson.DATE),\n//     TIME: inputJson.TIME\n// }\n\n// // Update the message payload with the modified JSON\n// msg.payload = modifiedJson;\n\n// // Return the updated message\n// return msg;\n// Extract the incoming message payload\nconst inputJson = msg.payload;\n\nfunction addOneDayToDate(dateString) {\n    const currentDate = new Date(dateString);\n    currentDate.setDate(currentDate.getDate() + 1);\n    return currentDate.toISOString().split('T')[0];\n}\n\nfunction addTwoHoursToTime(timeString) {\n    const currentTime = new Date(timeString);\n    currentTime.setHours(currentTime.getHours() + 2);\n    return currentTime.toISOString().split('T')[1].split('.')[0];\n}\n\nconst modifiedJson = {\n    STDNUM: \"'\" + inputJson.STDNUMS + \"'\",\n    TBLNUM: inputJson.TBLNUM,\n    DATE: addOneDayToDate(inputJson.DATE),\n    TIME: addTwoHoursToTime(inputJson.TIME)\n};\n\n// Update the message payload with the modified JSON\nmsg.payload = modifiedJson;\n\n// Return the updated message\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "3a20b1e369bd3263"
+            ]
+        ]
+    },
+    {
+        "id": "1b9939d674da5611",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": " SQL: Insert into bookings",
+        "func": "msg.topic = \"INSERT INTO bookings (STDNUM, TABLE_NUM, DATE, TIME)\" \n    + \"VALUES (\" + msg.payload.STDNUM + \",\" + msg.payload.TBLNUM +\n    \", '\" + msg.payload.DATE + \"','\" + \"\"+ msg.payload.TIME+ \"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 440,
+        "wires": [
+            [
+                "64b3cd37bc2dabd5"
+            ]
+        ]
+    },
+    {
+        "id": "64b3cd37bc2dabd5",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "bookings",
+        "x": 1640,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0c5a895e9c0efb7",
+        "type": "inject",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 1120,
+        "wires": [
+            [
+                "8ff4138d65ca8251"
+            ]
+        ]
+    },
+    {
+        "id": "8ff4138d65ca8251",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "delete old sessions",
+        "func": "msg.topic = \"DELETE FROM current_session WHERE DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR AND NOW();\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1120,
+        "wires": [
+            [
+                "82f0833bf16568d9"
+            ]
+        ]
+    },
+    {
+        "id": "82f0833bf16568d9",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 630,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "521ce62d3b66ccc6",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "update_current_session",
+        "func": "msg.topic = \"INSERT INTO current_session (STDNUM, TABLE_NUM, DATE, TIME) SELECT STDNUM, TABLE_NUM, DATE, TIME FROM bookings WHERE DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR AND NOW();\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1120,
+        "wires": [
+            [
+                "618bc7e487cef924"
+            ]
+        ]
+    },
+    {
+        "id": "618bc7e487cef924",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 1130,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e199a7b4cb7604e6",
+        "type": "inject",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 660,
+        "y": 1200,
+        "wires": [
+            [
+                "521ce62d3b66ccc6"
+            ]
+        ]
+    },
+    {
+        "id": "c75bae628e03d90c",
+        "type": "inject",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 1280,
+        "wires": [
+            [
+                "87b33f25d8e46a0b"
+            ]
+        ]
+    },
+    {
+        "id": "87b33f25d8e46a0b",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "delete old sessions",
+        "func": "msg.topic = \"set time_zone = '+02:00';\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1280,
+        "wires": [
+            [
+                "ef19a556731e5975"
+            ]
+        ]
+    },
+    {
+        "id": "ef19a556731e5975",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 730,
+        "y": 1280,
+        "wires": [
+            [
+                "4e801e4c46c0cd1c"
+            ]
+        ]
+    },
+    {
+        "id": "4e801e4c46c0cd1c",
+        "type": "debug",
+        "z": "0fea605258dceb48",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "131be89fe6dc7ed7",
+        "type": "inject",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 1340,
+        "wires": [
+            [
+                "262477aa59414c44"
+            ]
+        ]
+    },
+    {
+        "id": "262477aa59414c44",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "delete old sessions",
+        "func": "msg.topic = 'SELECT NOW();';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1340,
+        "wires": [
+            [
+                "85844a33a284b9bf"
+            ]
+        ]
+    },
+    {
+        "id": "85844a33a284b9bf",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 730,
+        "y": 1340,
+        "wires": [
+            [
+                "dfcf29cb095b2e8a"
+            ]
+        ]
+    },
+    {
+        "id": "dfcf29cb095b2e8a",
+        "type": "debug",
+        "z": "0fea605258dceb48",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "f6147eff29e933d4",
+        "type": "book",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "raw": false,
+        "x": 330,
+        "y": 740,
+        "wires": [
+            [
+                "8605cb9404ec0d9d"
+            ]
+        ]
+    },
+    {
+        "id": "8605cb9404ec0d9d",
+        "type": "sheet",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "sheetName": "Sheet1",
+        "x": 470,
+        "y": 740,
+        "wires": [
+            [
+                "66bb5dd4f97f2c96"
+            ]
+        ]
+    },
+    {
+        "id": "66bb5dd4f97f2c96",
+        "type": "sheet-to-json",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "raw": "false",
+        "range": "",
+        "header": "default",
+        "blankrows": false,
+        "x": 630,
+        "y": 740,
+        "wires": [
+            [
+                "48d02f67731074c4"
+            ]
+        ]
+    },
+    {
+        "id": "19a95c846878868b",
+        "type": "ui_upload",
+        "z": "0fea605258dceb48",
+        "group": "1314220c1931be07",
+        "title": "upload",
+        "accept": "",
+        "name": "",
+        "order": 1,
+        "width": "2",
+        "height": "1",
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "f6147eff29e933d4"
+            ]
+        ]
+    },
+    {
+        "id": "54997c09a51527ac",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "Fix Date and Time",
+        "func": "// // Extract the incoming message payload\n// const inputJson = msg.payload;\n\n// function addOneDayToDate(dateString) {\n//     const currentDate = new Date(dateString);\n//     currentDate.setDate(currentDate.getDate() + 1);\n//     return currentDate.toISOString().split('T')[0];\n// }\n\n// const modifiedJson = {\n\n//     STDNUM : \"'\" + inputJson.STDNUMS + \"'\",\n//     TBLNUM : inputJson.TBLNUM,\n//     DATE: addOneDayToDate(inputJson.DATE),\n//     TIME: inputJson.TIME\n// }\n\n// // Update the message payload with the modified JSON\n// msg.payload = modifiedJson;\n\n// // Return the updated message\n// return msg;\n// Extract the incoming message payload\nconst inputJson = msg.payload;\n\nfunction addOneDayToDate(dateString) {\n    const currentDate = new Date(dateString);\n    currentDate.setDate(currentDate.getDate() + 1);\n    return currentDate.toISOString().split('T')[0];\n}\n\nfunction addTwoHoursToTime(timeString) {\n    const currentTime = new Date(timeString);\n    currentTime.setHours(currentTime.getHours() + 2);\n    return currentTime.toISOString().split('T')[1].split('.')[0];\n}\n\nconst modifiedJson = {\n    DATE: addOneDayToDate(inputJson.DATE),\n    TIME: addTwoHoursToTime(inputJson.TIME),\n    Tmin: inputJson.Tmin,\n    Tmax: inputJson.Tmax\n};\n\n// Update the message payload with the modified JSON\nmsg.payload = modifiedJson;\n\n// Return the updated message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 800,
+        "wires": [
+            [
+                "5e92efb966669923"
+            ]
+        ]
+    },
+    {
+        "id": "ecceba3c93cb7004",
+        "type": "ui_form",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "label": "",
+        "group": "1314220c1931be07",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Date",
+                "value": "DATE",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Time",
+                "value": "TIME",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Table Min",
+                "value": "Tmin",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Table Max",
+                "value": "Tmax",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "DATE": "",
+            "TIME": "",
+            "Tmin": "",
+            "Tmax": ""
+        },
+        "payload": "",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "topic": "form",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "54997c09a51527ac"
+            ]
+        ]
+    },
+    {
+        "id": "48d02f67731074c4",
+        "type": "change",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e92efb966669923",
+        "type": "change",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.stdnum",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 800,
+        "wires": [
+            [
+                "abafe641a5c22d76"
+            ]
+        ]
+    },
+    {
+        "id": "abafe641a5c22d76",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "Fix array",
+        "func": "// Initialize an empty array to hold the transformed objects\nvar inputJson = msg.payload;\nconst transformedArray = [];\n\n// Loop through each element in the stdnum array\nfor (const stdnum of inputJson.stdnum) {\n    // Create a new object for each stdnum with DATE and TIME attributes\n    const newObj = {\n        STDNUM: stdnum.STD_NUM,\n        DATE: inputJson.DATE,\n        TIME: inputJson.TIME,\n        Tmin: inputJson.Tmin,\n        Tmax: inputJson.Tmax\n    };\n\n    // Push the new object to the transformedArray\n    transformedArray.push(newObj);\n}\n\n// Set the transformedArray as the output message\nmsg.payload = transformedArray;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 800,
+        "wires": [
+            [
+                "18b34c325aa92681"
+            ]
+        ]
+    },
+    {
+        "id": "232d332fd0af2277",
+        "type": "debug",
+        "z": "0fea605258dceb48",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "18b34c325aa92681",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": " SQL: Insert into bookings",
+        "func": "msg.topic = \"INSERT INTO bookings (STDNUM, TABLE_NUM, DATE, TIME)\" \n    + \"VALUES (\" + msg.payload.STDNUM + \",\" + msg.payload.TBLNUM +\n    \", '\" + msg.payload.DATE + \"','\" + \"\"+ msg.payload.TIME+ \"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 800,
+        "wires": [
+            [
+                "232d332fd0af2277"
+            ]
+        ]
+    },
+    {
+        "id": "5fa7bdf71566b5d8",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "bookings",
+        "x": 1280,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a20b1e369bd3263",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": " SQL: Check if already booked.",
+        "func": "var msgin = msg.payload;\nmsg.topic = `SELECT STDNUM FROM bookings WHERE STDNUM != '' \n  AND DATE = '${msgin.DATE}' \n  AND TIME = \n  '${msgin.TIME}'\n  AND TABLE_NUM = ${msgin.TBLNUM};`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "2e97040d6504ac5e",
+                "657ee8300b0a2c36"
+            ]
+        ]
+    },
+    {
+        "id": "2e97040d6504ac5e",
+        "type": "mysql",
+        "z": "0fea605258dceb48",
+        "mydb": "8fe7bdee376e11af",
+        "name": "bookings",
+        "x": 860,
+        "y": 440,
+        "wires": [
+            [
+                "f2879827ae8dc509"
+            ]
+        ]
+    },
+    {
+        "id": "f2879827ae8dc509",
+        "type": "switch",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 440,
+        "wires": [
+            [
+                "0b9a3cd2e598c71b"
+            ],
+            [
+                "2aa1edc08251b5e6"
+            ]
+        ]
+    },
+    {
+        "id": "4566123009b6b3c2",
+        "type": "ui_toast",
+        "z": "0fea605258dceb48",
+        "position": "dialog",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Already has booking",
+        "x": 1440,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "657ee8300b0a2c36",
+        "type": "change",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b9a3cd2e598c71b",
+        "type": "change",
+        "z": "0fea605258dceb48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1200,
+        "y": 440,
+        "wires": [
+            [
+                "1b9939d674da5611"
+            ]
+        ]
+    },
+    {
+        "id": "2aa1edc08251b5e6",
+        "type": "function",
+        "z": "0fea605258dceb48",
+        "name": "Create Err Msg",
+        "func": "msg.topic = \"Time clashes with other student\"\nmsg.payload = \"FAIL\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 500,
+        "wires": [
+            [
+                "4566123009b6b3c2"
+            ]
+        ]
+    },
+    {
+        "id": "16af4065507fc3d4",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01d750d7a0407cb9",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "bookings",
+        "x": 680,
+        "y": 560,
+        "wires": [
+            [
+                "043066584d48b846"
+            ]
+        ]
+    },
+    {
+        "id": "1fd0d0047e39b53c",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Add status for each table",
+        "func": "const input = msg.payload;\n\nvar status = 0;\n\nif (input.STDNUM != null){\n    if(input.FLAG == 1){\n        status = 12;\n    }\n    else{\n        status = 8;\n    }\n}\nelse{\n    status = 0;\n}\n\n\nmsg.payload = \"{'t':\" + input.TABLE_NUM + \",'s':\" + status + \"}\";\n\n// Return the updated message\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 640,
+        "wires": [
+            [
+                "8329371b0aeac354"
+            ]
+        ]
+    },
+    {
+        "id": "1cf0417cfd728ef8",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Find booked tables and flag ending soon",
+        "func": "msg.topic = \"SELECT TABLE_NUM, STDNUM, DATE, TIME, CASE WHEN TIME + INTERVAL 50 MINUTE <= NOW() THEN 1 ELSE 0 END AS flag FROM bookings WHERE STDNUM != '' AND DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR and NOW(); \";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 560,
+        "wires": [
+            [
+                "01d750d7a0407cb9"
+            ]
+        ]
+    },
+    {
+        "id": "49081e74d762ef32",
+        "type": "serial out",
+        "z": "a21cce9ce617493b",
+        "name": "SERIALS",
+        "serial": "b494c49fefb89c5e",
+        "x": 1020,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "043066584d48b846",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Fix data",
+        "func": "// Assume that msg.payload is an array of currently booked tables\nconst bookedTables = msg.payload;\n\n// Create an array to represent all 10 tables, initially filled with objects having STDNUM as null and TABLE_NUM from 1 to 10\nconst allTables = Array(5).fill({ STDNUM: null }).map((table, index) => ({\n    STDNUM: null,\n    TABLE_NUM: index + 1,\n    FLAG: 0\n}));\n\n// Iterate through the booked tables and update the corresponding positions in allTables\nbookedTables.forEach((table) => {\n    const tableNumber = table.TABLE_NUM;\n    if (tableNumber >= 1 && tableNumber <= 5) {\n        allTables[tableNumber - 1] = { STDNUM: table.STDNUM, TABLE_NUM: table.TABLE_NUM, FLAG:table.flag };\n    }\n});\n\n// Now allTables contains the 10 tables with TABLE_NUM populated from 1 to 10 and STDNUM set to null for unbooked tables\nmsg.payload = allTables;\nmsg.topic = \"tables\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 640,
+        "wires": [
+            [
+                "5d24a696d1d86b8e"
+            ]
+        ]
+    },
+    {
+        "id": "5d24a696d1d86b8e",
+        "type": "split",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 430,
+        "y": 640,
+        "wires": [
+            [
+                "1fd0d0047e39b53c"
+            ]
+        ]
+    },
+    {
+        "id": "56a1f3daf94a5144",
+        "type": "serial in",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "serial": "b494c49fefb89c5e",
+        "x": 180,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b605676a783fd5d",
+        "type": "json",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 920,
+        "wires": [
+            [
+                "c5f4be8bcab6e07d"
+            ]
+        ]
+    },
+    {
+        "id": "c6040f93456add9b",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Check for whats at table number",
+        "func": "var input = msg.payload;\nmsg.topic = 'SELECT STDNUM, TABLE_NUM as t FROM bookings WHERE TABLE_NUM = ' + input.t + ' AND DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR AND NOW();';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 920,
+        "wires": [
+            [
+                "d95144aedc0b4d67"
+            ]
+        ]
+    },
+    {
+        "id": "d95144aedc0b4d67",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "Bookings",
+        "x": 1420,
+        "y": 920,
+        "wires": [
+            [
+                "7002fed5f5219a35",
+                "e2793e6af735cdab"
+            ]
+        ]
+    },
+    {
+        "id": "8d33170f78a58d02",
+        "type": "change",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7002fed5f5219a35",
+        "type": "switch",
+        "z": "a21cce9ce617493b",
+        "name": "Split if null",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 1160,
+        "wires": [
+            [
+                "ae6bfce645abc917"
+            ],
+            [
+                "ea63e74a4ecd4791"
+            ]
+        ]
+    },
+    {
+        "id": "ae6bfce645abc917",
+        "type": "change",
+        "z": "a21cce9ce617493b",
+        "name": "reset message payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1120,
+        "wires": [
+            [
+                "eb730d6f4d619e0b",
+                "c1a91c5df723cfc4",
+                "0e897866a159ca50"
+            ]
+        ]
+    },
+    {
+        "id": "dd3cfdbd769b4766",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"t\":1,\"s\":\"003A28DC\"}",
+        "payloadType": "str",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "9b605676a783fd5d"
+            ]
+        ]
+    },
+    {
+        "id": "48b8472d9ee356f6",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "check for table number and stdnum",
+        "func": "var input = msg.payload\nmsg.topic = \"SELECT TABLE_NUM FROM bookings WHERE TABLE_NUM = \" + input.t + \" AND STDNUM = '\" + input.STDNUM + \"'AND DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR AND NOW();;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 1220,
+        "wires": [
+            [
+                "0baf72f337d2ca38"
+            ]
+        ]
+    },
+    {
+        "id": "eb730d6f4d619e0b",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Allow Access",
+        "func": "var input = msg.payload.t;\nmsg.payload = \"{'t':\" + input + \",'s':3}\";\n\n\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 1060,
+        "wires": [
+            [
+                "268fd2d744dbfb4c"
+            ]
+        ]
+    },
+    {
+        "id": "ea63e74a4ecd4791",
+        "type": "change",
+        "z": "a21cce9ce617493b",
+        "name": "reset message payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1220,
+        "wires": [
+            [
+                "48b8472d9ee356f6",
+                "bbab873e78fb86ee"
+            ]
+        ]
+    },
+    {
+        "id": "97e9ac608ab62747",
+        "type": "comment",
+        "z": "a21cce9ce617493b",
+        "name": "if null",
+        "info": "",
+        "x": 730,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "0baf72f337d2ca38",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 1290,
+        "y": 1220,
+        "wires": [
+            [
+                "406d73394c9668eb",
+                "5488659892775405"
+            ]
+        ]
+    },
+    {
+        "id": "406d73394c9668eb",
+        "type": "switch",
+        "z": "a21cce9ce617493b",
+        "name": "if null",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1470,
+        "y": 1220,
+        "wires": [
+            [
+                "ebf3e7276cbc987b"
+            ],
+            [
+                "236998c2d283e394"
+            ]
+        ]
+    },
+    {
+        "id": "c397b4947e430998",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Deny Access",
+        "func": "var input = msg.payload.t;\nmsg.payload = \"{'t':\" + input + \",'s':2}\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1890,
+        "y": 1200,
+        "wires": [
+            [
+                "6c33f4e117dd3edf",
+                "d84361ba588b50fa"
+            ]
+        ]
+    },
+    {
+        "id": "225f2f279a209ad8",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Allow Access",
+        "func": "var input = msg.payload.t;\nmsg.payload = \"{'t':\" + input + \",'s':3}\";\n\n\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1890,
+        "y": 1240,
+        "wires": [
+            [
+                "6c33f4e117dd3edf",
+                "d84361ba588b50fa"
+            ]
+        ]
+    },
+    {
+        "id": "6c33f4e117dd3edf",
+        "type": "serial out",
+        "z": "a21cce9ce617493b",
+        "name": "SERIALS",
+        "serial": "b494c49fefb89c5e",
+        "x": 2480,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "ebf3e7276cbc987b",
+        "type": "change",
+        "z": "a21cce9ce617493b",
+        "name": "reset message payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1670,
+        "y": 1200,
+        "wires": [
+            [
+                "c397b4947e430998"
+            ]
+        ]
+    },
+    {
+        "id": "236998c2d283e394",
+        "type": "change",
+        "z": "a21cce9ce617493b",
+        "name": "reset message payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1670,
+        "y": 1240,
+        "wires": [
+            [
+                "225f2f279a209ad8",
+                "c81d5ceb94da31c8"
+            ]
+        ]
+    },
+    {
+        "id": "d84361ba588b50fa",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 27",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2240,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "c1a91c5df723cfc4",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Insert new STDNUM into current_session",
+        "func": "msg.topic = \"INSERT INTO current_session (STDNUM, TABLE_NUM, DATE, TIME)\" \n    + \"VALUES ('\" + msg.payload.STDNUM + \"',\" + msg.payload.t +\n    \", NOW(), NOW());\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1120,
+        "wires": [
+            [
+                "38ed22d4055b26fb"
+            ]
+        ]
+    },
+    {
+        "id": "4917fade4305f11c",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_session",
+        "x": 1880,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12e809ce393dc082",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "token_table",
+        "x": 790,
+        "y": 920,
+        "wires": [
+            [
+                "0ec89e04c2f86e01"
+            ]
+        ]
+    },
+    {
+        "id": "c5f4be8bcab6e07d",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Get STDNUM from token Table",
+        "func": "var input = msg.payload\nmsg.topic = \"SELECT STDNUM, \"+input.t + \" as t FROM token_table WHERE TOKEN = '\" + input.s + \"';\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 920,
+        "wires": [
+            [
+                "12e809ce393dc082"
+            ]
+        ]
+    },
+    {
+        "id": "0ec89e04c2f86e01",
+        "type": "split",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 930,
+        "y": 920,
+        "wires": [
+            [
+                "c6040f93456add9b",
+                "8d33170f78a58d02"
+            ]
+        ]
+    },
+    {
+        "id": "97e8e062be708629",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"t\":1,\"s\":\"00C46DC1\"}",
+        "payloadType": "str",
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "9b605676a783fd5d"
+            ]
+        ]
+    },
+    {
+        "id": "e2238b603d962825",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 1650,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c8ffd2e6ddfa750",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "update_current_session",
+        "func": "msg.topic = \"INSERT INTO current_session (STDNUM, TABLE_NUM, DATE, TIME) SELECT STDNUM, TABLE_NUM, DATE, TIME FROM bookings WHERE DATE = CURDATE() AND TIME BETWEEN NOW() - INTERVAL 1 HOUR AND NOW();\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 780,
+        "wires": [
+            [
+                "e2238b603d962825"
+            ]
+        ]
+    },
+    {
+        "id": "268fd2d744dbfb4c",
+        "type": "serial out",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "serial": "b494c49fefb89c5e",
+        "x": 1220,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "695e409f6e92f8b1",
+        "type": "comment",
+        "z": "a21cce9ce617493b",
+        "name": "There is a booking",
+        "info": "",
+        "x": 730,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "0e897866a159ca50",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "c855922b4864306b",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Insert new STDNUM into current_session",
+        "func": "msg.topic = \"INSERT INTO bookings (STDNUM, TABLE_NUM, DATE, TIME)\" \n    + \"VALUES ('\" + msg.payload.STDNUM + \"',\" + msg.payload.t +\n    \", NOW(), NOW());\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1620,
+        "y": 1120,
+        "wires": [
+            [
+                "4917fade4305f11c"
+            ]
+        ]
+    },
+    {
+        "id": "38ed22d4055b26fb",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_session",
+        "x": 1340,
+        "y": 1120,
+        "wires": [
+            [
+                "c855922b4864306b"
+            ]
+        ]
+    },
+    {
+        "id": "c81d5ceb94da31c8",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Insert new STDNUM into current_session",
+        "func": "msg.topic = \"INSERT IGNORE INTO current_session (STDNUM, TABLE_NUM, DATE, TIME)\" \n    + \"Select '\" + msg.payload.STDNUM + \"',\" + msg.payload.t +\n    \", NOW(), NOW() WHERE NOT EXISTS (SELECT 1 FROM current_session WHERE STDNUM = '\"+msg.payload.STDNUM + \"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2060,
+        "y": 1320,
+        "wires": [
+            [
+                "7c6c8c3ee8812a13"
+            ]
+        ]
+    },
+    {
+        "id": "7c6c8c3ee8812a13",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_session",
+        "x": 2420,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "daa4687e92af4639",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Deny Access ESP-NOW",
+        "func": "var input = msg.payload.t;\n\nmsg.payload = \"\" + input + \",2&\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2150,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe7f513339d33f0d",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "Allow Access ESP-NOW",
+        "func": "var checknull = msg.payload;\n\n\nvar input = msg.payload.t;\nmsg.payload = \"\" + input + \",3&\";\n\n\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2150,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8329371b0aeac354",
+        "type": "delay",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "40",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 640,
+        "wires": [
+            [
+                "49081e74d762ef32",
+                "eb6a6b753d36f26e"
+            ]
+        ]
+    },
+    {
+        "id": "eb6a6b753d36f26e",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "684176d97a42b7c4",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "3060c929b540a10e"
+            ]
+        ]
+    },
+    {
+        "id": "3060c929b540a10e",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "delete old sessions",
+        "func": "msg.topic = \"set time_zone = '+02:00';\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "d22cbeb37935df64"
+            ]
+        ]
+    },
+    {
+        "id": "d22cbeb37935df64",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 670,
+        "y": 400,
+        "wires": [
+            [
+                "80dbd5fefb7e5772"
+            ]
+        ]
+    },
+    {
+        "id": "80dbd5fefb7e5772",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 33",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9926f872efaff858",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "0185204c5e2a9786"
+            ]
+        ]
+    },
+    {
+        "id": "0185204c5e2a9786",
+        "type": "function",
+        "z": "a21cce9ce617493b",
+        "name": "delete old sessions",
+        "func": "msg.topic = 'SELECT NOW();';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 460,
+        "wires": [
+            [
+                "903d3015594b4062"
+            ]
+        ]
+    },
+    {
+        "id": "903d3015594b4062",
+        "type": "mysql",
+        "z": "a21cce9ce617493b",
+        "mydb": "8fe7bdee376e11af",
+        "name": "current_sessions",
+        "x": 670,
+        "y": 460,
+        "wires": [
+            [
+                "f3e29db55227220a"
+            ]
+        ]
+    },
+    {
+        "id": "f3e29db55227220a",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "bbab873e78fb86ee",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 39",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "cf25ae0b47fae3c5",
+        "type": "inject",
+        "z": "a21cce9ce617493b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"t\":1,\"s\":\"0\"}",
+        "payloadType": "str",
+        "x": 850,
+        "y": 720,
+        "wires": [
+            [
+                "49081e74d762ef32"
+            ]
+        ]
+    },
+    {
+        "id": "e2793e6af735cdab",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 40",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "5488659892775405",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "54b4e7c6f6798770",
+        "type": "debug",
+        "z": "a21cce9ce617493b",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6a4d1cc8a147dc4c",
+        "type": "ui_gauge",
+        "z": "8f7809781495ceb3",
+        "name": "",
+        "group": "22f0b55d75ee90ea",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Lab Capacity",
+        "label": "Students",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1170,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "04cf55b13a174731",
+        "type": "inject",
+        "z": "8f7809781495ceb3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "74fc48cfe3f69a11",
+                "89b40be0a6bc2348",
+                "81e170ebd3411d32",
+                "674e465cc5b23207"
+            ]
+        ]
+    },
+    {
+        "id": "74fc48cfe3f69a11",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "get_num_of_students",
+        "func": "msg.topic = \"SELECT COUNT(*) FROM current_session WHERE STDNUM IS NOT NULL AND STDNUM != '';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "33061c496446d8a3"
+            ]
+        ]
+    },
+    {
+        "id": "33061c496446d8a3",
+        "type": "mysql",
+        "z": "8f7809781495ceb3",
+        "mydb": "8fe7bdee376e11af",
+        "name": "",
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "0d3dea7cdad42a49"
+            ]
+        ]
+    },
+    {
+        "id": "0d3dea7cdad42a49",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "get_count",
+        "func": "const num = msg.payload[0]['COUNT(*)'];\nmsg.payload = num;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 320,
+        "wires": [
+            [
+                "6a4d1cc8a147dc4c"
+            ]
+        ]
+    },
+    {
+        "id": "89b40be0a6bc2348",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "get_num_of_students",
+        "func": "msg.topic = 'SELECT STDNUM FROM current_session WHERE STDNUM != \"\" ;';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "ffa33838b1ce0488"
+            ]
+        ]
+    },
+    {
+        "id": "ffa33838b1ce0488",
+        "type": "mysql",
+        "z": "8f7809781495ceb3",
+        "mydb": "8fe7bdee376e11af",
+        "name": "",
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "215eb2162a3b1079"
+            ]
+        ]
+    },
+    {
+        "id": "db9efc0146895570",
+        "type": "ui_text",
+        "z": "8f7809781495ceb3",
+        "group": "b11c936537a55cb0",
+        "order": 1,
+        "width": "2",
+        "height": "10",
+        "name": "",
+        "label": "Current Students In Lab",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1210,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "215eb2162a3b1079",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "Create Array",
+        "func": "// Extract the incoming message payload (assuming it contains the SQL query result)\nconst queryResult = msg.payload;\n\n// Check if queryResult is an array\nif (Array.isArray(queryResult)) {\n    // Use the map function to extract student names into a new array\n    const studentNames = queryResult.map(item => item.STDNUM);\n\n    // Update the message payload with the array of student names\n    msg.payload = studentNames;\n} else {\n    // Handle the case where the query result structure is unexpected\n    msg.payload = 'Query result structure is unexpected.';\n}\n\n// Return the updated message\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 380,
+        "wires": [
+            [
+                "db9efc0146895570"
+            ]
+        ]
+    },
+    {
+        "id": "81e170ebd3411d32",
+        "type": "cpu",
+        "z": "8f7809781495ceb3",
+        "name": "",
+        "msgCore": true,
+        "msgOverall": false,
+        "msgArray": false,
+        "msgTemp": false,
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "db1b4ea920b2e3a5"
+            ]
+        ]
+    },
+    {
+        "id": "db1b4ea920b2e3a5",
+        "type": "ui_chart",
+        "z": "8f7809781495ceb3",
+        "name": "",
+        "group": "5a1d5c94e0d8eb45",
+        "order": 0,
+        "width": "6",
+        "height": "4",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 770,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "674e465cc5b23207",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "get_free_tables",
+        "func": "msg.topic = 'SELECT TABLE_NUM as t FROM current_session;';\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "b57fe1aadeea0663"
+            ]
+        ]
+    },
+    {
+        "id": "b57fe1aadeea0663",
+        "type": "mysql",
+        "z": "8f7809781495ceb3",
+        "mydb": "8fe7bdee376e11af",
+        "name": "",
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "dd17111361bf9aeb"
+            ]
+        ]
+    },
+    {
+        "id": "dd17111361bf9aeb",
+        "type": "function",
+        "z": "8f7809781495ceb3",
+        "name": "map",
+        "func": "// Input: An array of objects, each containing a 't' attribute (e.g., [{t: 1}, {t: 3}, {t: 7}])\nconst tablesInUse = msg.payload;\n\n// Create an array of all available table numbers (1 to 10)\nconst allTableNumbers = Array.from({ length: 10 }, (_, i) => i + 1);\n\n// Extract the table numbers currently in use\nconst tablesInUseNumbers = tablesInUse.map(item => item.t);\n\n// Calculate the free table numbers by finding the difference between all table numbers and tables in use\nconst freeTableNumbers = allTableNumbers.filter(tableNumber => !tablesInUseNumbers.includes(tableNumber));\n\n// Set the freeTableNumbers array as the output message\nmsg.payload = freeTableNumbers;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 460,
+        "wires": [
+            [
+                "e2605f4017e21cb7"
+            ]
+        ]
+    },
+    {
+        "id": "e2605f4017e21cb7",
+        "type": "ui_template",
+        "z": "8f7809781495ceb3",
+        "group": "b11c936537a55cb0",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<h3>Free Tables</h3>\n<div ng-bind-html=\"freeTablesHTML\"></div>\n<script>\n    (function(scope) {\n        scope.$watch('msg.payload', function(data) {\n            // Ensure msg.payload is an array\n            if (Array.isArray(data)) {\n                // Create an HTML list from the array\n                var freeTablesHTML = \"<ul>\";\n                data.forEach(function(table) {\n                    freeTablesHTML += \"<li>\" + table + \"</li>\";\n                });\n                freeTablesHTML += \"</ul>\";\n\n                // Set the HTML list to be displayed\n                scope.freeTablesHTML = freeTablesHTML;\n            }\n        });\n    })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1180,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a153de204a4cd421",
+        "type": "serial in",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "serial": "b494c49fefb89c5e",
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "62c3859892b35bfa",
+                "425818764f160937"
+            ]
+        ]
+    },
+    {
+        "id": "4c4a271b289df407",
+        "type": "serial out",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "serial": "b494c49fefb89c5e",
+        "x": 1660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "de68e372b4800a63",
+        "type": "function",
+        "z": "cdfe098afd9a2d5e",
+        "name": "function 1",
+        "func": "\n// const arr = [];\n\n// for (let i = 0; i < 1000; i++) {\n//     const time = new Date();\n//     const element = `{\"t\":0, \"s\":0, \"l\":${i}, \"time\": \"${(time.getMilliseconds())}\"}`;\n//     arr.push(element);\n// }\n// msg.payload = arr;\n// return msg;\nvar s = context.get('s');\nif (typeof s == \"undefined\")\n    s = 0;\n\nconst time = new Date();\nmsg.payload = `{\"t\":0, \"s\":${s}, \"l\":1, \"time\": ${(time.getMilliseconds())}}`;\n//msg.payload = \"0\" + s + \"&\";\ns = s + 1;\ncontext.set(\"s\", s); // to store a variable\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 340,
+        "wires": [
+            [
+                "17f4e1780e145f87"
+            ]
+        ]
+    },
+    {
+        "id": "17f4e1780e145f87",
+        "type": "split",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1490,
+        "y": 340,
+        "wires": [
+            [
+                "4c4a271b289df407",
+                "2061f25ff36b608d"
+            ]
+        ]
+    },
+    {
+        "id": "028915e33173af2c",
+        "type": "function",
+        "z": "cdfe098afd9a2d5e",
+        "name": "function 2",
+        "func": "var input = msg.payload;\nconst time = new Date();\ninput['newtime'] = time.getMilliseconds();\ninput['now'] = time.getTime();\nmsg.payload = input;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 500,
+        "wires": [
+            [
+                "808b0020b226e0bf"
+            ]
+        ]
+    },
+    {
+        "id": "808b0020b226e0bf",
+        "type": "csv",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "t,s,l,time,newtime,rssi,now",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1450,
+        "y": 500,
+        "wires": [
+            [
+                "2152d58d0b3cdc8a"
+            ]
+        ]
+    },
+    {
+        "id": "c630ec0d0aa3a081",
+        "type": "change",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "flow",
+                "to": "flow.topic + 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c3280a2820f12b3",
+        "type": "inject",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 860,
+        "y": 260,
+        "wires": [
+            [
+                "f0bd6da0446e7750"
+            ]
+        ]
+    },
+    {
+        "id": "9552e6b5a7fcfc30",
+        "type": "switch",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "property": "payload.l",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 500,
+        "wires": [
+            [
+                "028915e33173af2c"
+            ]
+        ]
+    },
+    {
+        "id": "f0bd6da0446e7750",
+        "type": "debug",
+        "z": "cdfe098afd9a2d5e",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "62c3859892b35bfa",
+        "type": "json",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 930,
+        "y": 500,
+        "wires": [
+            [
+                "9552e6b5a7fcfc30",
+                "d1cb667f9123c918"
+            ]
+        ]
+    },
+    {
+        "id": "2152d58d0b3cdc8a",
+        "type": "file",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "filename": "/home/admin/data/LAS-data/mesh_with_databse",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1740,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cad43d616db0aa94",
+        "type": "inject",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.01",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 850,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2061f25ff36b608d",
+        "type": "debug",
+        "z": "cdfe098afd9a2d5e",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d1cb667f9123c918",
+        "type": "debug",
+        "z": "cdfe098afd9a2d5e",
+        "name": "debug 36",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b66bc3c15d543c7a",
+        "type": "exec",
+        "z": "cdfe098afd9a2d5e",
+        "command": "cd data/LAS-data/;  git add --all",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1890,
+        "y": 660,
+        "wires": [
+            [
+                "cfe5bb0441a2e327",
+                "6eb87128405a595b"
+            ],
+            [
+                "6eb87128405a595b",
+                "d4e0717b83965605"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cfe5bb0441a2e327",
+        "type": "exec",
+        "z": "cdfe098afd9a2d5e",
+        "command": "cd data/LAS-data/; git commit -am \"added data remotely\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2410,
+        "y": 660,
+        "wires": [
+            [
+                "46e2b28e9bfaa30c",
+                "6eb87128405a595b"
+            ],
+            [
+                "6eb87128405a595b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "46e2b28e9bfaa30c",
+        "type": "exec",
+        "z": "cdfe098afd9a2d5e",
+        "command": "cd data/LAS-data/; git push",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 2860,
+        "y": 660,
+        "wires": [
+            [
+                "6eb87128405a595b"
+            ],
+            [
+                "6eb87128405a595b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6eb87128405a595b",
+        "type": "debug",
+        "z": "cdfe098afd9a2d5e",
+        "name": "debug 37",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2240,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ffcef47ff64c123b",
+        "type": "inject",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "0 9-23 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0e4272d6b4a98e8b",
+        "type": "function",
+        "z": "cdfe098afd9a2d5e",
+        "name": "function 3",
+        "func": "const arr = [];\n\nfor (let i = 0; i < 30; i++) {\n    arr.push(i) \n}\n\nmsg.payload = arr;\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 380,
+        "wires": [
+            [
+                "cd342aa46e2dabd8"
+            ]
+        ]
+    },
+    {
+        "id": "cd342aa46e2dabd8",
+        "type": "split",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 910,
+        "y": 400,
+        "wires": [
+            [
+                "5f74755387b40a87"
+            ]
+        ]
+    },
+    {
+        "id": "718962a6bfcaf986",
+        "type": "delay",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1000",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 620,
+        "y": 360,
+        "wires": [
+            [
+                "0e4272d6b4a98e8b"
+            ]
+        ]
+    },
+    {
+        "id": "d594fe712fa272b2",
+        "type": "inject",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1590,
+        "y": 660,
+        "wires": [
+            [
+                "b66bc3c15d543c7a"
+            ]
+        ]
+    },
+    {
+        "id": "d4e0717b83965605",
+        "type": "exec",
+        "z": "cdfe098afd9a2d5e",
+        "command": "rm -f .git/index.lock",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1930,
+        "y": 780,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b25459d00b58d530",
+        "type": "switch",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "\\n",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76da6581474f7fe1",
+        "type": "switch",
+        "z": "cdfe098afd9a2d5e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "\"t\"",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "425818764f160937",
+        "type": "debug",
+        "z": "cdfe098afd9a2d5e",
+        "name": "debug 43",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5f74755387b40a87",
+        "type": "function",
+        "z": "cdfe098afd9a2d5e",
+        "name": "Get STDNUM from token Table",
+        "func": "var input = msg.payload\nmsg.topic = \"SELECT STDNUM FROM token_table WHERE TOKEN = '003A28DC';\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 320,
+        "wires": [
+            [
+                "de68e372b4800a63"
+            ]
+        ]
+    },
+    {
+        "id": "12e0203f.d58be",
+        "type": "inject",
+        "z": "53b8a60c.b0cba8",
+        "name": "init",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 198,
+        "y": 122,
+        "wires": [
+            [
+                "4ad793f9.1fbdbc"
+            ]
+        ]
+    },
+    {
+        "id": "4ad793f9.1fbdbc",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "Read locales",
+        "func": "var TZ = [\"Africa\",\"Asia\",\"Canada\",\"Indian\",\"US\",\"America\",\"Atlantic\",\"Chile\",\"Mexico\",\"Antarctica\",\"Australia\",\"Pacific\",\"Arctic\",\"Brazil\",\"Europe\"]\n\nfor(let i=0;i<TZ.length;i++) {\n    node.send({topic: TZ[i], payload: '/usr/share/zoneinfo/' + TZ[i] + '/', init: i === TZ.length-1})\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 417,
+        "y": 121,
+        "wires": [
+            [
+                "c6fd0daf.8c482"
+            ]
+        ]
+    },
+    {
+        "id": "c6fd0daf.8c482",
+        "type": "exec",
+        "z": "53b8a60c.b0cba8",
+        "command": "ls ",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 589,
+        "y": 121,
+        "wires": [
+            [
+                "ebd4dca4.ab828",
+                "3e2e7b0e.683ce4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ebd4dca4.ab828",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "set flow vars",
+        "func": "var areas = msg.payload.split('\\n').filter(a => !!a)\n\nflow.set(msg.topic, areas)",
+        "outputs": 0,
+        "noerr": 0,
+        "x": 760,
+        "y": 107,
+        "wires": []
+    },
+    {
+        "id": "3e2e7b0e.683ce4",
+        "type": "switch",
+        "z": "53b8a60c.b0cba8",
+        "name": "if init",
+        "property": "init",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 757,
+        "y": 167,
+        "wires": [
+            [
+                "467bb794.f76f88"
+            ]
+        ]
+    },
+    {
+        "id": "375407c3.992bd8",
+        "type": "ui_dropdown",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "label": "Area",
+        "tooltip": "",
+        "place": "Select area",
+        "group": "a1d8ed34.6a447",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 1084,
+        "y": 166,
+        "wires": [
+            [
+                "f1ff3b98.994be8"
+            ]
+        ]
+    },
+    {
+        "id": "467bb794.f76f88",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "Set options",
+        "func": "var msg = {\n    options: flow.keys()\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 918,
+        "y": 166,
+        "wires": [
+            [
+                "375407c3.992bd8"
+            ]
+        ]
+    },
+    {
+        "id": "f4e22fd6.746d3",
+        "type": "ui_dropdown",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "label": "City",
+        "tooltip": "",
+        "place": "Select city",
+        "group": "a1d8ed34.6a447",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 1167,
+        "y": 250,
+        "wires": [
+            [
+                "7866d4d5.6cf34c"
+            ]
+        ]
+    },
+    {
+        "id": "f1ff3b98.994be8",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "Set cities",
+        "func": "global.set(\"area\", msg.payload)\nglobal.set(\"city\", \"\")\n\nmsg = {options: flow.get(msg.payload)}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1237,
+        "y": 166,
+        "wires": [
+            [
+                "f4e22fd6.746d3"
+            ]
+        ]
+    },
+    {
+        "id": "7866d4d5.6cf34c",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "Set cities",
+        "func": "global.set(\"city\", msg.payload)",
+        "outputs": 0,
+        "noerr": 0,
+        "x": 1312,
+        "y": 250,
+        "wires": []
+    },
+    {
+        "id": "65e64af0.16f134",
+        "type": "inject",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "area",
+        "payloadType": "global",
+        "x": 933,
+        "y": 203,
+        "wires": [
+            [
+                "375407c3.992bd8"
+            ]
+        ]
+    },
+    {
+        "id": "8c4767e4.d55908",
+        "type": "inject",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "city",
+        "payloadType": "global",
+        "x": 999,
+        "y": 262,
+        "wires": [
+            [
+                "f4e22fd6.746d3"
+            ]
+        ]
+    },
+    {
+        "id": "66cfa78b.b5b6d8",
+        "type": "inject",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 219,
+        "y": 207,
+        "wires": [
+            [
+                "5ad77235.78a39c"
+            ]
+        ]
+    },
+    {
+        "id": "5ad77235.78a39c",
+        "type": "exec",
+        "z": "53b8a60c.b0cba8",
+        "command": "date",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 373,
+        "y": 207,
+        "wires": [
+            [
+                "98d0bf7f.5371d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "98d0bf7f.5371d",
+        "type": "ui_text",
+        "z": "53b8a60c.b0cba8",
+        "group": "a1d8ed34.6a447",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Date",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 194,
+        "wires": []
+    },
+    {
+        "id": "4fbda27f.7d015c",
+        "type": "ui_button",
+        "z": "53b8a60c.b0cba8",
+        "name": "",
+        "group": "a1d8ed34.6a447",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "UPDATE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 175,
+        "y": 319,
+        "wires": [
+            [
+                "27059364.3b4a8c"
+            ]
+        ]
+    },
+    {
+        "id": "27059364.3b4a8c",
+        "type": "function",
+        "z": "53b8a60c.b0cba8",
+        "name": "update timezone",
+        "func": "var command = '/usr/share/zoneinfo/'+global.get(\"area\")+'/'+global.get(\"city\")+' /etc/localtime'\nnode.send({payload: command})\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 357,
+        "y": 319,
+        "wires": [
+            [
+                "d759e33f.cecaa"
+            ]
+        ]
+    },
+    {
+        "id": "d759e33f.cecaa",
+        "type": "exec",
+        "z": "53b8a60c.b0cba8",
+        "command": "sudo ln -sf",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 552,
+        "y": 319,
+        "wires": [
+            [
+                "5aea3ae6.980494"
+            ],
+            [
+                "cd3f0ef2.cf60c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a0414d37.8132c",
+        "type": "ui_toast",
+        "z": "53b8a60c.b0cba8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "success",
+        "x": 860,
+        "y": 305,
+        "wires": []
+    },
+    {
+        "id": "ff28f510.a53508",
+        "type": "ui_toast",
+        "z": "53b8a60c.b0cba8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "error",
+        "x": 851,
+        "y": 346,
+        "wires": []
+    },
+    {
+        "id": "5aea3ae6.980494",
+        "type": "change",
+        "z": "53b8a60c.b0cba8",
+        "name": "success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Timezone updated successfully",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 711,
+        "y": 305,
+        "wires": [
+            [
+                "a0414d37.8132c"
+            ]
+        ]
+    },
+    {
+        "id": "cd3f0ef2.cf60c",
+        "type": "change",
+        "z": "53b8a60c.b0cba8",
+        "name": "error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Error while updating timezone",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 719,
+        "y": 346,
+        "wires": [
+            [
+                "ff28f510.a53508"
+            ]
+        ]
+    }
+]
