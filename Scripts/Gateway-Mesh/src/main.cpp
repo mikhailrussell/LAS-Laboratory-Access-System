@@ -10,6 +10,12 @@
 //************************************************************
 #include <painlessMesh.h>
 #include <HardwareSerial.h>
+#include "painlessmesh/protocol.hpp"
+#include "plugin/performance.hpp"
+
+
+using namespace painlessmesh;
+
 
 #define   MESH_SSID       "white-lab-mesh"
 #define   MESH_PASSWORD   "justinhelp"
@@ -25,43 +31,62 @@ void delayReceivedCallback(uint32_t from, int32_t delay);
 Scheduler     userScheduler; // to control your personal task
 painlessMesh  mesh;
 
+
 bool calc_delay = false;
 SimpleList<uint32_t> nodes;
 
-// Task to blink the number of nodes
-Task blinkNoNodes;
+void RPI_recieve();
+#define PERIOD1 40
+Task writetopi(PERIOD1 * TASK_MILLISECOND, TASK_FOREVER ,&RPI_recieve, &userScheduler);
 bool onFlag = false;
 
 HardwareSerial RPI(1);
 String inputString = "";
 
 void RPI_recieve(void){
-  
-  while (RPI.available()) {
+  if(RPI.available()){
+    while (RPI.available()) {
 
-    char c = RPI.read();
-    inputString += c;
+      char c = RPI.read();
+      if (c == '\n'){
+        Serial.println(inputString);
+        mesh.sendBroadcast(inputString);
+        inputString = "";
+      }
+      else{
+        inputString += c;
+      }
+      
+      
+    }
+    
   }
-  //Serial.println(inputString);
-  mesh.sendBroadcast(inputString);
-  inputString = "";
+  //Serial.printf("Sending: %s \n", inputString);
+ 
+ 
 }
 
 
 void setup() {
   Serial.begin(115200);
+  RPI.setRxBufferSize(4086);
+  RPI.setTxBufferSize(4086);
   RPI.begin(115200, SERIAL_8N1, 18, 17);
-  RPI.onReceive(&RPI_recieve);
+  //RPI.onReceive(&RPI_recieve);
   
-
   mesh.setDebugMsgTypes(ERROR | DEBUG);  // set before init() so that you can see error messages
 
   mesh.init(MESH_SSID, MESH_PASSWORD, &userScheduler, MESH_PORT);
+  plugin::performance::begin(mesh, 2);
   mesh.onReceive(&receivedCallback);
+  userScheduler.addTask(writetopi);
+  writetopi.enable();
+ 
   //mesh.onNewConnection(&newConnectionCallback);
   // mesh.onChangedConnections(&changedConnectionCallback);
   //mesh.onNodeTimeAdjusted(&nodeTimeAdjustedCallback);
   //mesh.onNodeDelayReceived(&delayReceivedCallback);
+  
 }
 
 void loop() {

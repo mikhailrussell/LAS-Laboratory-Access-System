@@ -4,6 +4,7 @@
 #include <painlessMesh.h>
 #include <ArduinoJson.h>
 #include <NeoPixelBus.h>
+#include <WiFi.h>
 
 #define MY_TABLE_NUM 1 // Define this units table num, Maybe need to make it ask on reset
 
@@ -42,6 +43,7 @@ void nodeTimeAdjustedCallback(int32_t offset);
 void delayReceivedCallback(uint32_t from, int32_t delay);
 
 StaticJsonDocument<192> doc;
+StaticJsonDocument<192> doc1;
 
 Scheduler     userScheduler; // to control your personal task
 painlessMesh  mesh;
@@ -92,6 +94,15 @@ struct Stat{
   boolean a;
 };
 
+struct RFID_data{
+  int header;
+  int version;
+  int token_buf[8];
+  int check_sum;
+  int tail;
+};
+RFID_data tag;
+
 data newdata;
 Stat current_stat;
 
@@ -102,21 +113,20 @@ void allow_access(){
   strip.Show();
   active = true;
   digitalWrite(RELAY_PIN, HIGH);
-  active = 1;
 }
 
 void deny_access(){
 
-  strip.SetPixelColor(0, red);
+  strip.SetPixelColor(1, red);
   strip.Show();
   delay(200);
-  strip.SetPixelColor(0, blue);
+  strip.SetPixelColor(1, black);
   strip.Show();
   delay(200);
-  strip.SetPixelColor(0, red);
+  strip.SetPixelColor(1, red);
   strip.Show();
   delay(200);
-  strip.SetPixelColor(0, blue);
+  strip.SetPixelColor(1, black);
   strip.Show();
   delay(200);
 
@@ -131,6 +141,9 @@ void handle_status(){
   if(current_stat.b == 0 && current_stat.e == 0 && current_stat.r == 0 && current_stat.a == 0){
     // Time to reset
     digitalWrite(RELAY_PIN, LOW);
+    active = false;
+    strip.SetPixelColor(0, green);
+    strip.Show();
   }
   else{
       // First check if response flag is high
@@ -181,9 +194,10 @@ void handle_status(){
 
 void setup() {
   Serial.begin(115200);
+  pinMode(RELAY_PIN, OUTPUT);
   RFID.begin(9600, SERIAL_8N1, 18, 17);
 
-  mesh.setDebugMsgTypes(ERROR | DEBUG);  // set before init() so that you can see error messages
+  mesh.setDebugMsgTypes(ERROR);  // set before init() so that you can see error messages
 
   mesh.init(MESH_SSID, MESH_PASSWORD, &userScheduler, MESH_PORT);
   mesh.onReceive(&receivedCallback);
@@ -193,7 +207,17 @@ void setup() {
   // mesh.onNodeDelayReceived(&delayReceivedCallback);
 
   strip.Begin();
+  
   strip.Show();
+
+  strip.SetPixelColor(0, red);
+  strip.SetPixelColor(1, blue);
+  strip.Show();
+  delay(1000);
+  strip.SetPixelColor(0, black);
+  strip.SetPixelColor(1, black);
+  strip.Show();
+
 
   Serial.println("Setup Complete!");
 }
@@ -240,58 +264,105 @@ void loop() {
   mesh.update();
 
   if (RFID.available()){
-    bool call_extract_tag = false;
-    String outstr = "";
-    int ssvalue = RFID.read(); // read 
-    if (ssvalue == -1) { // no data was read
+    int RFID_val = RFID.read();
+    if(RFID_val == -1){
       return;
     }
-  
-  
-    if (ssvalue == 2) { // RDM630/RDM6300 found a tag => tag incoming 
-      buffer_index = 0;
-    } 
-    else if (ssvalue == 3) { // tag has been fully transmitted       
-      call_extract_tag = true; // extract tag at the end of the function call
-    }
-    buffer[buffer_index++] = ssvalue; // everything is alright => copy current value to buffer
+    Serial.println("Reading Tag");
+    bool call_extract_tag = false;
+    String outstr = "";
+    
+    u_int8_t buf[14];
+    Serial.print("Start Value:");
+    Serial.println(RFID_val);
 
-
-
-    if (call_extract_tag == true) {
-      if (buffer_index == BUFFER_SIZE) {
-        extract_tag();
-
-        // Time to send tag
-        Serial.println("Going to send:");
-        for (int i = 0; i != 8; i++){
-          Serial.print(tag_buffer[i]);
-          outstr = outstr + tag_buffer[i];
-        }
-
-        doc["t"] = MY_TABLE_NUM;
-        doc["s"] = outstr;
-        doc["id"] = mesh.getNodeId();
-
-        String output = ""; 
-        serializeJson(doc,output);
-        mesh.sendBroadcast(output);
-        delay(1000);
-        Serial.println("Clearing Buffer...");
-        // Basically keep reading till -1 or else cards stack
-        int temp = 1;
-        while(temp != -1){
-          temp = RFID.read();
-        }
-      } 
-      else { // something is wrong... start again looking for preamble (value: 2)
-        buffer_index = 0;
-        Serial.println("Something went wrong");
-        return;
+    int i = 0;
+    bool complete = false;
+    buf[i] = RFID_val;
+    while (!complete)
+    {
+      RFID_val = RFID.read();
+      if(RFID_val == -1){
       }
-      
+      else{
+        i++;
+        Serial.printf("i: %i ", i);
+        buf[i]= RFID_val;
+        Serial.printf("buf[i]: %0x", buf[i]);
+        if (buf[i] == 3){complete = true;};
+      }
     }
-  }
+    memcpy(&tag,&buf, 14);
+    Serial.println(tag.header);
+    Serial.print("tag:");
+    String tagstring = "";
+    for (int i = 3; i < 11; i++){
+      Serial.println(buf[i]);
+      tagstring = tagstring + (char)buf[i];
+    }
+    Serial.println(tagstring);
+    doc1["t"] = MY_TABLE_NUM;
+    doc1["s"] = tagstring;
+    doc1["id"] = mesh.getNodeId();
+
+    String output = ""; 
+    serializeJson(doc1,output);
+    mesh.sendBroadcast(output);
+    int temp = 1;
+    delay(100);
+
+    while(temp != -1){
+      temp = RFID.read();
+    }
+
+    //Serial.println(tag.token);
+    }
+  
+  
+    // if (ssvalue == 2) { // RDM630/RDM6300 found a tag => tag incoming 
+    //   buffer_index = 0;
+    // } 
+    // else if (ssvalue == 3) { // tag has been fully transmitted       
+    //   call_extract_tag = true; // extract tag at the end of the function call
+    // }
+    // buffer[buffer_index++] = ssvalue; // everything is alright => copy current value to buffer
+
+
+
+    // if (call_extract_tag == true) {
+    //   if (buffer_index == BUFFER_SIZE) {
+    //     extract_tag();
+
+    //     // Time to send tag
+    //     Serial.println("Going to send:");
+    //     for (int i = 0; i != 8; i++){
+    //       Serial.print(tag_buffer[i]);
+    //       outstr = outstr + tag_buffer[i];
+    //     }
+
+    //     doc["t"] = MY_TABLE_NUM;
+    //     doc["s"] = outstr;
+    //     doc["id"] = mesh.getNodeId();
+
+    //     String output = ""; 
+    //     serializeJson(doc,output);
+    //     mesh.sendBroadcast(output);
+    //     delay(1000);
+    //     Serial.println("Clearing Buffer...");
+    //     // Basically keep reading till -1 or else cards stack
+    //     int temp = 1;
+    //     while(temp != -1){
+    //       temp = RFID.read();
+    //     }
+    //   } 
+    //   else { // something is wrong... start again looking for preamble (value: 2)
+    //     buffer_index = 0;
+    //     Serial.println("Something went wrong");
+    //     return;
+    //   }
+      
+    //}
+  //}
 
 }
 
@@ -304,28 +375,23 @@ void receivedCallback(uint32_t from, String & msg) {
   int s = doc["s"].as<int>(); // 12
   int time = doc["time"];
   int l = test;
-  
 
-  //Serial.print(t);
-  //Serial.println(s);
-  //int l = doc["l"]; // 255
   newdata.TABLE_NUM = t;
   newdata.STATUS =s;
-  if(newdata.TABLE_NUM == 0 and test != 10000){
-    String output = "";
-    doc["t"] = 0;
-    doc["s"] = s;
-    int l = test;
-    doc["l"] = l;
-    doc["time"] = time;
+  // if(newdata.TABLE_NUM == 0 and test != 10000){
+  //   String output = "";
+  //   doc["t"] = 0;
+  //   doc["s"] = s;
+  //   int l = test;
+  //   doc["l"] = l;
+  //   doc["time"] = time;
 
-    serializeJson(doc, output);
-    mesh.sendBroadcast(output);
-    test = test+1;
-  }
+  //   serializeJson(doc, output);
+  //   mesh.sendBroadcast(output);
+  //   test = test+1;
+  // }
   if(newdata.TABLE_NUM == MY_TABLE_NUM){
-    Serial.print(t);  
-    Serial.println(s);
+    
     std::array<int, 4> result = UpdateStatus(newdata.STATUS);
     Serial.print(result[0]); Serial.print(" ");
     Serial.print(result[1]); Serial.print(" ");

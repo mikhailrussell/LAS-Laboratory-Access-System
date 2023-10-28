@@ -28,7 +28,6 @@ HslColor hslWhite(white);
 HslColor hslBlack(black);
 
 #define MY_TABLE_NUM 2 // Define this units table num, Maybe need to make it ask on reset
-int old_table = 2000;
 boolean active = false;
 
 //7C:DF:A1:FD:70:D4
@@ -77,6 +76,7 @@ struct Stat{
   boolean r;
   boolean a;
 };
+
 
 data newdata;
 Stat current_stat;
@@ -167,7 +167,7 @@ void handle_status(){
 void OnDataRecv(const uint8_t * mac, const uint8_t *data, int len) {
   
   memcpy(&newdata, data, len);
-  Serial.printf("Received Data: Table = %d, status = %d, Size = %d\n", newdata.TABLE_NUM, newdata.STATUS, len);
+  Serial.printf("Received Data: Table = %d, status = %d, Size = %d, Time = %d \n", newdata.TABLE_NUM, newdata.STATUS, len, newdata.timeIn);
   if(newdata.TABLE_NUM == 0){
     StaticJsonDocument<64> doc;
     doc["t"] = 0;
@@ -206,7 +206,7 @@ void setup(){
   Serial.begin(115200);
   RFID.begin(9600, SERIAL_8N1, 18, 17);
 
-    pinMode(RELAY_PIN, OUTPUT);
+  pinMode(RELAY_PIN, OUTPUT);
   //Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA);
   esp_wifi_set_mac(WIFI_IF_STA, &newMACAddress[0]);
@@ -345,6 +345,7 @@ void loop(){
       
     }
   }
+
 
   
     
